@@ -1,0 +1,3 @@
+src/Foundry/veOLASTest.t.sol:veOLASTest
+ ├╴constructor
+ └╴prove_test2(uint256,uint256)

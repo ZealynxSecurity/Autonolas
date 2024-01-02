@@ -11,8 +11,9 @@ contract CounterTest is Test {
         olas = new OLAS();
     }
 
-    function testFuzz_InflationControl(uint256 amount) public {
+    function prove_testFuzz_InflationControl(uint256 amount) public {
         olas.inflationControl(amount);
         assert(amount <= olas.inflationRemainder());
     }
+
 }
