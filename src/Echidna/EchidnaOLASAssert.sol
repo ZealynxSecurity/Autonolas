@@ -17,40 +17,40 @@ contract EchidnaOLASAssert {
     }
 
     // INVARIANT 1: Total Supply Never Exceeds Ten Year Supply Cap
-    function total_supply_cap() public view {
+    function assert_total_supply_cap() public view {
         assert(olas.totalSupply() <= olas.tenYearSupplyCap());
     }
 
     // INVARIANT 2: Owner and Minter Addresses are Non-Zero
-    function non_zero_addresses() public view {
+    function assert_non_zero_addresses() public view {
         assert(olas.owner() != address(0) && olas.minter() != address(0));
     }
 
     // INVARIANT 3: Inflation Control
-    function inflation_control(uint256 amount) public {
+    function assert_inflation_control(uint256 amount) public {
         emit Time(olas.timeLaunch(), block.timestamp);
         emit Amount(amount);
         assert(olas.inflationControl(amount));
     }
 
     // INVARIANT 4: Remaining Supply After Mint
-    function inflation_remainder() public {
+    function assert_inflation_remainder() public {
         emit Time(olas.timeLaunch(), block.timestamp);
         assert(olas.inflationRemainder() >= 0);
     }
 
     // INVARIANT 5: Burn Does Not Underflow
-    function burn_underflow() public view {
+    function assert_burn_underflow() public view {
         assert(olas.totalSupply() >= 0);
     }
 
     // INVARIANT 6: Allowances Are Correctly Managed
-    function allowance_management(address _owner, address spender) public view {
+    function assert_allowance_management(address _owner, address spender) public view {
         assert(olas.allowance(_owner, spender) <= olas.balanceOf(_owner));
     }
 
     // INVARIANT 7: Minting Does Not Exceed Yearly Inflation After 10 Years
-    function yearly_inflation_control() public {
+    function assert_yearly_inflation_control() public {
         emit Time(olas.timeLaunch(), block.timestamp);
 
         // Calculate the dynamic supply cap based on the years passed
