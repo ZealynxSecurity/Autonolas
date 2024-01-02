@@ -6,7 +6,7 @@ import {OLAS} from "../src/OLAS.sol";
 import {veOLAS} from "../src/veOLAS.sol";
 
 
-contract _castLogPayloadViewToPure(fnIn);OLASScript is Script {
+contract veOLASScript is Script {
     OLAS public olas;
     veOLAS public veolas;
 
@@ -22,7 +22,6 @@ contract _castLogPayloadViewToPure(fnIn);OLASScript is Script {
         string memory randomId3 = "symbol";
 
         bytes memory const = abi.encode(randomId1,randomId2,randomId3);
-
         veolas = new veOLAS(randomId1,randomId2,randomId3);
 
         console2.log( "AddressOLAS", address(olas));
@@ -32,3 +31,5 @@ contract _castLogPayloadViewToPure(fnIn);OLASScript is Script {
         emit PlayerEncoded(randomId1, randomId2, randomId3);
     }
 }
+
+//address => 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
