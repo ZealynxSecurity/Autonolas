@@ -2,6 +2,7 @@
 pragma solidity ^0.8.15;
 
 import "./OLAS.sol";
+//echidna src/EchidnaOLAS.sol --contract EchidnaOLAS
 
 contract EchidnaOLAS is OLAS {
     event Time(uint256 _indexTimeLaunch, uint256 _indexCurrentTime);
