@@ -42,7 +42,7 @@ contract OLAS is ERC20 {
 
     /// @dev Changes the owner address.
     /// @param newOwner Address of a new owner.
-    function changeOwner(address newOwner) external {
+    function changeOwner(address newOwner) public {
         if (msg.sender != owner) {
             revert ManagerOnly(msg.sender, owner);
         }

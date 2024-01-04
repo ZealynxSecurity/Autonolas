@@ -68,4 +68,26 @@ contract EchidnaOLASAssert {
         // Check if the total supply does not exceed the dynamically calculated supply cap
         assert(olas.totalSupply() <= currentSupplyCap);
     }
+
+
+     /// Tests for each external function 
+
+    function assert_owner_can_change_owner(address newOwner) public {
+        address originalOwner = olas.owner();
+        // Attempt to change the owner to a new address
+        if (newOwner == address(0) || newOwner == originalOwner) {
+            // Not a valid test case, return true
+            assert(true);
+        }
+
+        // Attempt to change the owner
+        olas.changeOwner(newOwner);
+
+        assert(olas.owner() == newOwner);
+
+        // Reset the owner to the original owner for the next test
+        olas.changeOwner(originalOwner);
+    }
+
+
 }
