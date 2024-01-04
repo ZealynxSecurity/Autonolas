@@ -61,7 +61,12 @@ contract veOLASTest is Test {
 
     }
 
-    //Balance y supply
+// =======================================================   
+
+            //            //  
+            // Balance y supply //
+            //            //    
+
     function testBalanceAndSupply() public {
 
         vm.prank(bob);
@@ -147,20 +152,18 @@ contract veOLASTest is Test {
         assertEq(supply, sumBalance, "El suministro total en el bloque no coincide con la suma de los balances");
     }
 
-    //Deposit
+// =======================================================   
+
+            //            //  
+            // DEPOSITFOR //
+            //            //    
 
     function test_depositFor() public {
         // PRECONDITIONS:
-        // Asegúrate de que amount sea válido para tus pruebas
-        // amount = bound(amount, 1, type(uint96).max); // Asegura que amount no exceda los límites de uint96
-
-        // Configura el entorno de prueba
         uint256 originalLocked = veolas.balanceOf(alice);
 
         vm.startPrank(bob);
-        // Si no hay saldo bloqueado existente para la cuenta, inicialízalo
         olas.transfer(address(alice), tenOLABalance);
-
         olas.approve(address(veolas), oneOLABalance);
         vm.stopPrank();
 
@@ -170,11 +173,9 @@ contract veOLASTest is Test {
         vm.prank(bob);
         veolas.createLock(oneOLABalance, oneWeek);
 
-
         uint256 supplyBefore = veolas.totalSupply();
 
         // ACTION:
-        // Llamada a depositFor
         vm.prank(alice); // Impersonar account para realizar el depósito
         veolas.depositFor(bob, oneOLABalance);
 
@@ -182,81 +183,86 @@ contract veOLASTest is Test {
         uint256 supplyAfter = veolas.totalSupply();
         uint256 updatedLocked = veolas.balanceOf(alice);
 
-        // Verifica las invariantes
         // 1. La suma de supply debe ser igual a la suma de todos los LockedBalance.amount
         assertEq(supplyAfter, supplyBefore + oneOLABalance, "Invariant: Supply consistency");
-
-        // 2. Verifica que supply nunca sea negativo (implícito en uint256)
         // 3. Verifica que supply aumente con depósitos positivos
         assertGt(supplyAfter, supplyBefore, "Invariant: Supply increment on deposit");
-
         // 4. Verifica consistencia en la creación o extensión de bloqueos
         // assertEq(updatedLocked, originalLocked + oneOLABalance, "Invariant: Locked amount consistency");
     }
-
 
     function testFuzz_depositFor(uint256 rawAmount) public {
         // Asegurar que rawAmount no sea cero
         vm.assume(rawAmount > 0);
 
         // Ajustar rawAmount para que sea un valor razonable
-        uint256 amount = bound(rawAmount, 1, type(uint96).max);
+        uint256 amount = _between(rawAmount, 1, type(uint96).max);
 
-        uint256 aliceBalance = olas.balanceOf(alice);
+        uint256 PaliceBalance = veolas.balanceOf(alice);
         uint256 tries = 0; // Para evitar un bucle infinito
 
+        uint256 amountA = 0;
         // Asegura que 'amount' sea menor o igual al saldo de Alice
-        while (amount > aliceBalance && tries < 100) {
+        while (amount > PaliceBalance && tries < 100) {
+
             vm.startPrank(bob);
-            olas.transfer(alice, amount - aliceBalance); // Transferir la diferencia a Alice
+            olas.transfer(alice, amount);
+            amountA = (amount - 1);
+            olas.approve(address(veolas), amountA);
             vm.stopPrank();
 
-            aliceBalance = olas.balanceOf(alice); // Actualizar el saldo de Alice
-            amount = bound(amount / 2, 1, aliceBalance); // Reducir 'amount' y asegurarse de que siga siendo válido
+            uint256 SaliceBalance = olas.balanceOf(alice); // Actualizar el saldo de Alice
             tries++;
         }
+        uint256 TaliceBalance = olas.balanceOf(alice);
+
 
         // Verifica que se haya encontrado un 'amount' válido
-        if (amount <= aliceBalance) {
-            // Preparar el entorno para Alice y Bob
+        if (amountA <= TaliceBalance) {
             vm.startPrank(alice);
-            olas.approve(address(veolas), amount);
+            olas.approve(address(veolas), amountA);
             
-            // Asegúrate de que Alice tenga un saldo bloqueado
-            if (veolas.balanceOf(alice) == 0) {
-                veolas.createLock(amount, oneWeek); // Crear un bloqueo inicial para Alice si no tiene uno
-            }
-
             vm.stopPrank();
 
             vm.startPrank(bob);
-            olas.transfer(address(bob), amount); // Transferir fondos a Bob para el bloqueo
-            olas.approve(address(veolas), amount);
-            veolas.createLock(amount, oneWeek); // Crear un bloqueo para Bob
+            veolas.createLock(amountA, oneWeek); // Crear un bloqueo para Bob
             vm.stopPrank();
 
             uint256 supplyBefore = veolas.totalSupply();
 
             // Acción: Alice deposita para Bob
-            vm.prank(alice);
-            veolas.depositFor(bob, amount);
+            vm.startPrank(alice);
+            uint256 cant =  olas.balanceOf(alice);
+            uint256 cantw =  olas.balanceOf(bob);
+
+            uint256 updatedLocked = olas.balanceOf(alice);
+            uint256 updatedLockedy = veolas.balanceOf(alice);
+            uint256 updatedLockedxx = olas.balanceOf(bob);
+            uint256 updatedLockedyy = veolas.balanceOf(bob);
+
+            veolas.depositFor(bob, amountA );
+            vm.stopPrank();
 
             // Postcondiciones
             uint256 supplyAfter = veolas.totalSupply();
-            uint256 updatedLocked = olas.balanceOf(alice);
+            uint256 bal = olas.balanceOf(alice);
+            uint256 ebal = veolas.balanceOf(alice);
+
+            uint256 bw = olas.balanceOf(bob);
+            uint256 be = veolas.balanceOf(bob);
 
             // Verificar las invariantes
-            assertEq(supplyAfter, supplyBefore + amount, "Invariant: Supply consistency");
-            assertEq(updatedLocked, aliceBalance - amount, "Invariant: Locked amount consistency");
+            assertEq(supplyAfter, supplyBefore + amountA, "Invariant: Supply consistency");
+            assertEq(updatedLocked, bal - amountA , "Invariant: Locked amount consistency");
         }
     }
 
-
-
+// =======================================================   
 
     // Bounding function similar to vm.assume but is more efficient regardless of the fuzzying framework
 	// This is also a guarante bound of the input unlike vm.assume which can only be used for narrow checks     
 	function _between(uint256 random, uint256 low, uint256 high) public pure returns (uint256) {
+        require(random != 0);
 		return low + random % (high-low);
 	} 
        
