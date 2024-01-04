@@ -53,7 +53,7 @@ contract veOLASTest is Test {
 
     }
 
-    function testFuzz3(uint256 amount, uint256 unlockTime) public {
+    function check_testFuzz3(uint256 amount, uint256 unlockTime) public {
         veolas.createLock(amount,unlockTime);
 
     }
