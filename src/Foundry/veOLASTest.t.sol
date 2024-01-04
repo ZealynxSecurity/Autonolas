@@ -35,8 +35,6 @@ contract veOLASTest is Test {
         veolas = new veOLAS(randomId1,randomId2,randomId3);
         olas.mint(bob, initialMint);
 
-
-
     }
 
     // Testityfuzz
@@ -62,7 +60,6 @@ contract veOLASTest is Test {
     }
 
 // =======================================================   
-
             //            //  
             // Balance y supply //
             //            //    
@@ -153,7 +150,6 @@ contract veOLASTest is Test {
     }
 
 // =======================================================   
-
             //            //  
             // DEPOSITFOR //
             //            //    
@@ -258,6 +254,33 @@ contract veOLASTest is Test {
     }
 
 // =======================================================   
+
+    function test_increaseAmounLock() public {
+        vm.startPrank(bob);
+        olas.approve(address(veolas), tenOLABalance);
+
+        vm.expectRevert();
+        veolas.increaseAmount(oneOLABalance);
+
+        veolas.createLock(oneOLABalance, oneWeek);
+        vm.expectRevert();
+        veolas.increaseAmount(0);
+
+        uint256 overflowNum96 = 8 * 10**28;
+
+        vm.expectRevert();
+        veolas.increaseAmount(overflowNum96);
+
+        veolas.increaseAmount(oneOLABalance);
+
+        // Avanzar el tiempo en una semana
+        vm.warp(block.timestamp + oneWeek);
+        // Minar un nuevo bloque
+        vm.roll(block.number + 1);
+
+        vm.expectRevert();
+        veolas.increaseAmount(oneOLABalance); 
+    }
 
     // Bounding function similar to vm.assume but is more efficient regardless of the fuzzying framework
 	// This is also a guarante bound of the input unlike vm.assume which can only be used for narrow checks     
