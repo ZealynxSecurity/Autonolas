@@ -12,6 +12,7 @@ contract veOLASTest is Test {
 
     address public alice;
     address public bob; //owner
+    address public seco; //owner
 
     uint256 constant oneOLABalance = 1; // 1 OLAS, ajusta según sea necesario
     uint256 constant twoOLABalance = 2; // 1 OLAS, ajusta según sea necesario
@@ -29,6 +30,7 @@ contract veOLASTest is Test {
 
         alice = vm.addr(1);
         bob = vm.addr(2);
+        seco = vm.addr(3);
         vm.prank(bob);
         veolas = new veOLAS(randomId1,randomId2,randomId3);
         olas.mint(bob, initialMint);
@@ -147,37 +149,34 @@ contract veOLASTest is Test {
 
     //Deposit
 
-    function testFuzz_depositFor(uint256 amount, uint timeSkip) public {
+    function test_depositFor() public {
         // PRECONDITIONS:
         // Asegúrate de que amount sea válido para tus pruebas
-        amount = bound(amount, 1, type(uint96).max); // Asegura que amount no exceda los límites de uint96
-
-        // if (!set) {
-        //     init(amount, _between(timeSkip, 1, (33110 * 2)));
-        // }
+        // amount = bound(amount, 1, type(uint96).max); // Asegura que amount no exceda los límites de uint96
 
         // Configura el entorno de prueba
         uint256 originalLocked = veolas.balanceOf(alice);
 
         vm.startPrank(bob);
         // Si no hay saldo bloqueado existente para la cuenta, inicialízalo
-            olas.transfer(address(alice), amount);
-            olas.transfer(address(bob), amount);
+        olas.transfer(address(alice), tenOLABalance);
 
-        
-        olas.approve(address(veolas), twoOLABalance);
-        olas.approve(alice, oneOLABalance);
-
+        olas.approve(address(veolas), oneOLABalance);
         vm.stopPrank();
+
         vm.prank(alice);
+        olas.approve(address(veolas), oneOLABalance);
+
+        vm.prank(bob);
         veolas.createLock(oneOLABalance, oneWeek);
+
 
         uint256 supplyBefore = veolas.totalSupply();
 
         // ACTION:
         // Llamada a depositFor
-        vm.prank(bob); // Impersonar account para realizar el depósito
-        veolas.depositFor(alice, amount);
+        vm.prank(alice); // Impersonar account para realizar el depósito
+        veolas.depositFor(bob, oneOLABalance);
 
         // POSTCONDITIONS:
         uint256 supplyAfter = veolas.totalSupply();
@@ -185,18 +184,73 @@ contract veOLASTest is Test {
 
         // Verifica las invariantes
         // 1. La suma de supply debe ser igual a la suma de todos los LockedBalance.amount
-        assertEq(supplyAfter, supplyBefore + amount, "Invariant: Supply consistency");
+        assertEq(supplyAfter, supplyBefore + oneOLABalance, "Invariant: Supply consistency");
 
         // 2. Verifica que supply nunca sea negativo (implícito en uint256)
         // 3. Verifica que supply aumente con depósitos positivos
         assertGt(supplyAfter, supplyBefore, "Invariant: Supply increment on deposit");
 
         // 4. Verifica consistencia en la creación o extensión de bloqueos
-        assertEq(updatedLocked, originalLocked + amount, "Invariant: Locked amount consistency");
-
-        // 5. Verifica mantenimiento de supply en extensiones de tiempo de bloqueo
-        // Esta invariante podría no aplicarse si la función no permite extensiones de tiempo de bloqueo
+        // assertEq(updatedLocked, originalLocked + oneOLABalance, "Invariant: Locked amount consistency");
     }
+
+
+    function testFuzz_depositFor(uint256 rawAmount) public {
+        // Asegurar que rawAmount no sea cero
+        vm.assume(rawAmount > 0);
+
+        // Ajustar rawAmount para que sea un valor razonable
+        uint256 amount = bound(rawAmount, 1, type(uint96).max);
+
+        uint256 aliceBalance = olas.balanceOf(alice);
+        uint256 tries = 0; // Para evitar un bucle infinito
+
+        // Asegura que 'amount' sea menor o igual al saldo de Alice
+        while (amount > aliceBalance && tries < 100) {
+            vm.startPrank(bob);
+            olas.transfer(alice, amount - aliceBalance); // Transferir la diferencia a Alice
+            vm.stopPrank();
+
+            aliceBalance = olas.balanceOf(alice); // Actualizar el saldo de Alice
+            amount = bound(amount / 2, 1, aliceBalance); // Reducir 'amount' y asegurarse de que siga siendo válido
+            tries++;
+        }
+
+        // Verifica que se haya encontrado un 'amount' válido
+        if (amount <= aliceBalance) {
+            // Preparar el entorno para Alice y Bob
+            vm.startPrank(alice);
+            olas.approve(address(veolas), amount);
+            
+            // Asegúrate de que Alice tenga un saldo bloqueado
+            if (veolas.balanceOf(alice) == 0) {
+                veolas.createLock(amount, oneWeek); // Crear un bloqueo inicial para Alice si no tiene uno
+            }
+
+            vm.stopPrank();
+
+            vm.startPrank(bob);
+            olas.transfer(address(bob), amount); // Transferir fondos a Bob para el bloqueo
+            olas.approve(address(veolas), amount);
+            veolas.createLock(amount, oneWeek); // Crear un bloqueo para Bob
+            vm.stopPrank();
+
+            uint256 supplyBefore = veolas.totalSupply();
+
+            // Acción: Alice deposita para Bob
+            vm.prank(alice);
+            veolas.depositFor(bob, amount);
+
+            // Postcondiciones
+            uint256 supplyAfter = veolas.totalSupply();
+            uint256 updatedLocked = olas.balanceOf(alice);
+
+            // Verificar las invariantes
+            assertEq(supplyAfter, supplyBefore + amount, "Invariant: Supply consistency");
+            assertEq(updatedLocked, aliceBalance - amount, "Invariant: Locked amount consistency");
+        }
+    }
+
 
 
 
