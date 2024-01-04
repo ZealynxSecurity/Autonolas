@@ -55,51 +55,51 @@ contract HalmosveOLASTest is Test, SymTest {
 
     }
 
-    // function check_testFuzz_HalmosBalanceAndSupply(uint256 tenOLABalance1, uint256 oneOLABalance1,uint256 twoOLABalance1,uint256 oneWeek) public {
+    function check_testFuzz_HalmosBalanceAndSupply(uint256 tenOLABalance1, uint256 oneOLABalance1,uint256 twoOLABalance1,uint256 oneWeek) public {
 
-    //     // vm.assume(oneOLABalance1 != 0);
-    //     // vm.assume(twoOLABalance1 != 0);
-    //     // vm.expectRevert(bytes("Overflow"));
+        vm.assume(oneOLABalance1 != 0);
+        vm.assume(twoOLABalance1 != 0);
+        vm.expectRevert(bytes("Overflow"));
         
-    //     vm.prank(caller);
-    //     // Transferir 10 OLAS a account
-    //     olas.transfer(others, tenOLABalance1);
-    //     vm.prank(caller);
+        vm.prank(caller);
+        // Transferir 10 OLAS a account
+        olas.transfer(others, tenOLABalance1);
+        vm.prank(caller);
 
-    //     // Aprobar OLAS para el contrato veOLAS
-    //     olas.approve(address(veolas), oneOLABalance1);
-    //     vm.prank(others); // Impersonar account para la aprobación
-    //     olas.approve(address(veolas), tenOLABalance1);
+        // Aprobar OLAS para el contrato veOLAS
+        olas.approve(address(veolas), oneOLABalance1);
+        vm.prank(others); // Impersonar account para la aprobación
+        olas.approve(address(veolas), tenOLABalance1);
 
-    //     // Verificar suministro inicial
-    //     uint256 lockDuration = oneWeek; // Duración de 1 semana
-    //     // vm.assume(lockDuration != 0);
-    //     // vm.expectRevert(bytes("UnlockTimeIncorrect"));
+        // Verificar suministro inicial
+        uint256 lockDuration = oneWeek; // Duración de 1 semana
+        vm.assume(lockDuration != 0);
+        vm.expectRevert(bytes("UnlockTimeIncorrect"));
 
-    //     vm.prank(caller);
-    //     // Crear bloqueos
-    //     veolas.createLock(oneOLABalance1, lockDuration);
-    //     vm.prank(others); // Impersonar account para crear bloqueo
-    //     veolas.createLock(twoOLABalance1, lockDuration);
+        vm.prank(caller);
+        // Crear bloqueos
+        veolas.createLock(oneOLABalance1, lockDuration);
+        vm.prank(others); // Impersonar account para crear bloqueo
+        veolas.createLock(twoOLABalance1, lockDuration);
 
-    //     // Verificar suministro y balance
-    //     uint256 balanceDeployer = veolas.getVotes(address(caller));
-    //     uint256 balanceAccount = veolas.getVotes(others);
-    //     uint256 supply = veolas.totalSupplyLocked();
-    //     uint256 sumBalance = balanceAccount + balanceDeployer;
+        // Verificar suministro y balance
+        uint256 balanceDeployer = veolas.getVotes(address(caller));
+        uint256 balanceAccount = veolas.getVotes(others);
+        uint256 supply = veolas.totalSupplyLocked();
+        uint256 sumBalance = balanceAccount + balanceDeployer;
         
-    //     assert(supply == sumBalance);
+        assert(supply == sumBalance);
 
-    //     uint256 blockNumber = block.number; // Número de bloque actual en Foundry
+        uint256 blockNumber = block.number; // Número de bloque actual en Foundry
 
-    //     // Verificar balance en un bloque específico
-    //     balanceDeployer = veolas.balanceOfAt(address(caller), blockNumber);
-    //     balanceAccount = veolas.balanceOfAt(others, blockNumber);
+        // Verificar balance en un bloque específico
+        balanceDeployer = veolas.balanceOfAt(address(caller), blockNumber);
+        balanceAccount = veolas.balanceOfAt(others, blockNumber);
 
-    //     supply = veolas.totalSupplyAt(blockNumber);
-    //     sumBalance = balanceAccount + balanceDeployer;
+        supply = veolas.totalSupplyAt(blockNumber);
+        sumBalance = balanceAccount + balanceDeployer;
 
-    //     assert(supply == sumBalance);
-    // }
+        assert(supply == sumBalance);
+    }
 
 }
