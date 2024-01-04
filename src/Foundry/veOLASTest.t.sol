@@ -102,7 +102,6 @@ contract veOLASTest is Test {
         vm.assume(oneOLABalance1 != 0);
         vm.assume(twoOLABalance1 != 0);
         vm.expectRevert(bytes("Overflow"));
-        vm.expectRevert(bytes("UnlockTimeIncorrect"));
         
         vm.prank(bob);
         // Transferir 10 OLAS a account
@@ -119,6 +118,7 @@ contract veOLASTest is Test {
 
         uint256 lockDuration = oneWeek1; // Duración de 1 semana
         vm.assume(lockDuration != 0);
+        vm.expectRevert(bytes("UnlockTimeIncorrect"));
 
         vm.prank(bob);
         // Crear bloqueos

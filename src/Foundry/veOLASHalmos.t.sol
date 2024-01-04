@@ -49,7 +49,7 @@ contract HalmosveOLASTest is Test, SymTest {
     function check_priimero() public {
         console2.log("holaa");
     }
-    
+
     function check_testFuzz3(uint256 amount, uint256 unlockTime) public {
         veolas.createLock(amount,unlockTime);
 
@@ -60,7 +60,6 @@ contract HalmosveOLASTest is Test, SymTest {
     //     // vm.assume(oneOLABalance1 != 0);
     //     // vm.assume(twoOLABalance1 != 0);
     //     // vm.expectRevert(bytes("Overflow"));
-    //     // vm.expectRevert(bytes("UnlockTimeIncorrect"));
         
     //     vm.prank(caller);
     //     // Transferir 10 OLAS a account
@@ -75,6 +74,7 @@ contract HalmosveOLASTest is Test, SymTest {
     //     // Verificar suministro inicial
     //     uint256 lockDuration = oneWeek; // Duración de 1 semana
     //     // vm.assume(lockDuration != 0);
+    //     // vm.expectRevert(bytes("UnlockTimeIncorrect"));
 
     //     vm.prank(caller);
     //     // Crear bloqueos
