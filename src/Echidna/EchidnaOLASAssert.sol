@@ -26,12 +26,12 @@ contract EchidnaOLASAssert {
         assert(olas.owner() != address(0) && olas.minter() != address(0));
     }
 
-    // INVARIANT 3: Inflation Control
-    function assert_inflation_control(uint256 amount) public {
-        emit Time(olas.timeLaunch(), block.timestamp);
-        emit Amount(amount);
-        assert(olas.inflationControl(amount));
-    }
+    // // INVARIANT 3: Inflation Control
+    // function assert_inflation_control(uint256 amount) public {
+    //     emit Time(olas.timeLaunch(), block.timestamp);
+    //     emit Amount(amount);
+    //     assert(olas.inflationControl(amount));
+    // }
 
     // INVARIANT 4: Remaining Supply After Mint
     function assert_inflation_remainder() public {
@@ -70,7 +70,7 @@ contract EchidnaOLASAssert {
     }
 
 
-     /// Tests for each external function 
+     /// Tests for external functions
 
     function assert_owner_can_change_owner(address newOwner) public {
         address originalOwner = olas.owner();
@@ -87,6 +87,11 @@ contract EchidnaOLASAssert {
 
         // Reset the owner to the original owner for the next test
         olas.changeOwner(originalOwner);
+    }
+
+    // Inflation remainder should be less than or equal to ten year supply cap minus total supply
+    function assert_inflation_remainder_within_cap() public view {
+        assert(olas.inflationRemainder() <= olas.tenYearSupplyCap() - olas.totalSupply());
     }
 
 

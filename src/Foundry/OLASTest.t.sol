@@ -50,6 +50,25 @@ contract CounterTest is Test {
         assert(olas.minter() != address(0));
     }
 
+    function invariant_onlyOwnerCanChangeMinter() public {
+        address originalMinter = olas.minter();
+        address originalOwner = olas.owner();
+
+        // Attempt to change the minter from a non-owner address should fail
+        vm.prank(address(1)); // An arbitrary non-owner address
+        try olas.changeMinter(address(2)) {
+            revert("Non-owner changed the minter");
+        } catch {}
+
+        // Now change the minter from the owner address should succeed
+        vm.prank(originalOwner);
+        address newMinter = address(3); // An arbitrary new minter address
+        olas.changeMinter(newMinter);
+        assert(olas.minter() == newMinter);
+
+        // Reset minter to original for cleanliness
+        olas.changeMinter(originalMinter);
+    }
 
 
 }

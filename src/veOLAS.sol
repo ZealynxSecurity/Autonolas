@@ -99,7 +99,7 @@ contract veOLAS is IErrors, IVotes, IERC20, IERC165 {
     // 1 week time
     uint64 internal constant WEEK = 1 weeks;
     // Maximum lock time (4 years)
-    uint256 internal constant MAXTIME = 4 * 365 * 86400;
+    uint256 public constant MAXTIME = 4 * 365 * 86400;
     // Maximum lock time (4 years) in int128
     int128 internal constant IMAXTIME = 4 * 365 * 86400;
     // Number of decimals
@@ -591,7 +591,7 @@ contract veOLAS is IErrors, IVotes, IERC20, IERC165 {
     /// @param account Account address.
     /// @param ts Time to get voting power at.
     /// @return vBalance Account voting power.
-    function _balanceOfLocked(address account, uint64 ts) internal view returns (uint256 vBalance) {
+    function _balanceOfLocked(address account, uint64 ts) public view returns (uint256 vBalance) {
         uint256 pointNumber = mapUserPoints[account].length;
         if (pointNumber > 0) {
             PointVoting memory uPoint = mapUserPoints[account][pointNumber - 1];
