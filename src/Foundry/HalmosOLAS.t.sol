@@ -52,9 +52,13 @@ contract SolmateERC20Test is ERC20Test {
         _check_transferFrom(caller, from, to, other, amount);
     }
 
-    function check_test_ERC20_setAndIncreaseAllowance(address target,uint256 initialAmount,uint256 increaseAmount) public {
-            _check_test_ERC20_setAndIncreaseAllowance( target, initialAmount, increaseAmount);
+    function check_test_ERC20_setAndIncreaseAllowance(bytes4 selector, address caller, address target,uint256 initialAmount,uint256 increaseAmount) public {
+        bytes memory args = svm.createBytes(1024, 'data');
+        _check_test_ERC20_setAndIncreaseAllowance( selector, args, caller, target, initialAmount, increaseAmount);
+    }
 
-
+    function checkApprove(bytes4 selector, address caller, address other) public {
+        bytes memory args = svm.createBytes(1024, 'data');
+        _checkApprove(selector, args, caller, other);
     }
 }

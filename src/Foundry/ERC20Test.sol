@@ -3,6 +3,8 @@ pragma solidity >=0.8.0 <0.9.0;
 
 import {SymTest} from "halmos-cheatcodes/SymTest.sol";
 import {Test} from "forge-std/Test.sol";
+import {Script, console2} from "forge-std/Script.sol";
+
 
 import {IERC20} from "forge-std/interfaces/IERC20.sol";
 
@@ -13,7 +15,14 @@ abstract contract ERC20Test is SymTest, Test {
     // token holders
     address[] internal holders;
 
+    event Result (uint256 parametroa, uint256 parametrob);
+
     function setUp() public virtual;
+
+
+//=================================================
+// BACKDOR
+//=================================================
 
     function _checkNoBackdoor(bytes4 selector, bytes memory args, address caller, address other) public virtual {
         // consider two arbitrary distinct accounts
@@ -36,6 +45,10 @@ abstract contract ERC20Test is SymTest, Test {
             assert(oldAllowance >= oldBalanceOther - newBalanceOther);
         }
     }
+
+//=================================================
+// TRANSFER / TRANSFERFROM
+//=================================================
 
     function _check_transfer(address sender, address receiver, address other, uint256 amount) public virtual {
         // consider other that are neither sender or receiver
@@ -92,28 +105,77 @@ abstract contract ERC20Test is SymTest, Test {
         assert(IERC20(token).balanceOf(other) == oldBalanceOther);
     }
 
+
+//=================================================
+// APPROVE / IN DECREASSEALOWANCE 
+//=================================================
+
         // Allowance should be modified correctly via increase/decrease
     function _check_test_ERC20_setAndIncreaseAllowance(
+        bytes4 selector,
+        bytes memory args,
+        address caller,
         address target,
         uint256 initialAmount,
         uint256 increaseAmount
     ) public {
 
-        bool r = this.approve(target, initialAmount);
+        require(caller != target);
+
+        vm.startPrank(caller);
+        bool r = IERC20(token).approve(target, initialAmount);
         assertTrue(r,"Failed to set initial allowance via approve");
         assertEq(
-            allowance(address(this), target),
+            IERC20(token).allowance(address(this), target),
             initialAmount,
             "Allowance not set correctly"
         );
+      // consider an arbitrary function call to the token from the caller
+        // (bool success,) = address(token).call(abi.encodePacked(selector, args));
+        // vm.assume(success);
 
-
-        r = this.increaseAllowance(target, increaseAmount);
+        r = IERC20(token).increaseAllowance(target, increaseAmount);
         assertTrue(r,"Failed to increase allowance");
+
+        uint256 parametroa = IERC20(token).allowance(address(this), target);
+        uint256 parametrob = initialAmount + increaseAmount;
+        vm.stopPrank();
+        console2.log("aaaa",parametroa);
+        console2.log("bbb",parametrob);
+
         assertEq(
-            allowance(address(this), target),
-            initialAmount + increaseAmount,
+            parametroa,
+            parametrob,
             "Allowance not increased correctly"
         );
+        emit Result( parametroa, parametrob);
+
+    }
+
+    function _checkApprove(bytes4 selector, bytes memory args, address caller, address other) public virtual {
+        // consider two arbitrary distinct accounts
+        vm.assume(other != caller);
+
+        // record their current balances
+        uint256 oldBalanceOther = IERC20(token).balanceOf(other);
+
+        uint256 oldAllowance = IERC20(token).allowance(other, caller);
+
+        // consider an arbitrary function call to the token from the caller
+        vm.startPrank(caller);
+        // (bool success,) = address(token).call(abi.encodePacked(other, args));
+        // vm.assume(success);
+        IERC20(token).increaseAllowance(other, svm.createUint256("deadline"));
+        IERC20(token).decreaseAllowance(other, svm.createUint256("deadline"));
+
+        uint256 newBalanceOther = IERC20(token).balanceOf(other);
+        uint256 newAllowance = IERC20(token).allowance(other, caller);
+        vm.stopPrank();
+
+
+        // ensure that the caller cannot spend other' tokens without approvals
+        if (newBalanceOther < oldBalanceOther) {
+            assert(oldAllowance >= newAllowance);
+        }
     }
 }
