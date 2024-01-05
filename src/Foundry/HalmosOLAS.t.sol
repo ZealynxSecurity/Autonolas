@@ -15,7 +15,9 @@ contract SolmateERC20Test is ERC20Test {
         vm.prank(deployer);
         OLAS token_ = new OLAS();
         token = address(token_);
-        token_.mint(deployer, 1_000_000_000e18);
+        uint256 supp = svm.createUint256("supp");
+        vm.prank(deployer);
+        token_.mint(deployer, supp);
 
 
         holders = new address[](3);
