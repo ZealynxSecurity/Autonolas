@@ -134,8 +134,8 @@ abstract contract ERC20Test is SymTest, Test {
         // (bool success,) = address(token).call(abi.encodePacked(selector, args));
         // vm.assume(success);
 
-        r = IERC20(token).increaseAllowance(target, increaseAmount);
-        assertTrue(r,"Failed to increase allowance");
+        bool t = IERC20(token).increaseAllowance(target, increaseAmount);
+        assertTrue(t,"Failed to increase allowance");
 
         uint256 parametroa = IERC20(token).allowance(address(this), target);
         uint256 parametrob = initialAmount + increaseAmount;
