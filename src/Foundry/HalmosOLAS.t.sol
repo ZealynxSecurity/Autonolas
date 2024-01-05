@@ -43,4 +43,13 @@ contract SolmateERC20Test is ERC20Test {
         bytes memory args = svm.createBytes(1024, 'data');
         _checkNoBackdoor(selector, args, caller, other);
     }
+
+    function Bcheck_transfer(address sender, address receiver, address other, uint256 amount) public {
+        check_transfer(sender, receiver, other, amount);
+    }
+
+    function Bcheck_transferFrom(address caller, address from, address to, address other, uint256 amount) public virtual {
+        check_transferFrom(caller, from, to, other, amount);
+    }
+
 }
