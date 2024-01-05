@@ -37,7 +37,7 @@ abstract contract ERC20Test is SymTest, Test {
         }
     }
 
-    function check_transfer(address sender, address receiver, address other, uint256 amount) public virtual {
+    function _check_transfer(address sender, address receiver, address other, uint256 amount) public virtual {
         // consider other that are neither sender or receiver
         require(other != sender);
         require(other != receiver);
@@ -64,7 +64,7 @@ abstract contract ERC20Test is SymTest, Test {
         assert(IERC20(token).balanceOf(other) == oldBalanceOther);
     }
 
-    function check_transferFrom(address caller, address from, address to, address other, uint256 amount) public virtual {
+    function _check_transferFrom(address caller, address from, address to, address other, uint256 amount) public virtual {
         require(other != from);
         require(other != to);
 
@@ -90,5 +90,30 @@ abstract contract ERC20Test is SymTest, Test {
             assert(IERC20(token).balanceOf(to) == oldBalanceTo);
         }
         assert(IERC20(token).balanceOf(other) == oldBalanceOther);
+    }
+
+        // Allowance should be modified correctly via increase/decrease
+    function _check_test_ERC20_setAndIncreaseAllowance(
+        address target,
+        uint256 initialAmount,
+        uint256 increaseAmount
+    ) public {
+
+        bool r = this.approve(target, initialAmount);
+        assertTrue(r,"Failed to set initial allowance via approve");
+        assertEq(
+            allowance(address(this), target),
+            initialAmount,
+            "Allowance not set correctly"
+        );
+
+
+        r = this.increaseAllowance(target, increaseAmount);
+        assertTrue(r,"Failed to increase allowance");
+        assertEq(
+            allowance(address(this), target),
+            initialAmount + increaseAmount,
+            "Allowance not increased correctly"
+        );
     }
 }

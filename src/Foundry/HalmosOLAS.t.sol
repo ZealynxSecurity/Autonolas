@@ -44,12 +44,17 @@ contract SolmateERC20Test is ERC20Test {
         _checkNoBackdoor(selector, args, caller, other);
     }
 
-    function Bcheck_transfer(address sender, address receiver, address other, uint256 amount) public {
-        check_transfer(sender, receiver, other, amount);
+    function check_transfer(address sender, address receiver, address other, uint256 amount) public {
+        _check_transfer(sender, receiver, other, amount);
     }
 
-    function Bcheck_transferFrom(address caller, address from, address to, address other, uint256 amount) public virtual {
-        check_transferFrom(caller, from, to, other, amount);
+    function check_transferFrom(address caller, address from, address to, address other, uint256 amount) public virtual {
+        _check_transferFrom(caller, from, to, other, amount);
     }
 
+    function check_test_ERC20_setAndIncreaseAllowance(address target,uint256 initialAmount,uint256 increaseAmount) public {
+            _check_test_ERC20_setAndIncreaseAllowance( target, initialAmount, increaseAmount);
+
+
+    }
 }
