@@ -6,8 +6,8 @@ import {SymTest} from "halmos-cheatcodes/SymTest.sol";
 import {console2} from "forge-std/Script.sol";
 
 
-import {OLAS} from "../OLAS.sol";
-import {veOLAS} from "../veOLAS.sol";
+import {OLAS} from "../../OLAS.sol";
+import {veOLAS} from "../../veOLAS.sol";
 
 
 contract HalmosveOLASTest is Test, SymTest {

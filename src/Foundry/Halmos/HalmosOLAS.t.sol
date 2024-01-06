@@ -3,7 +3,7 @@ pragma solidity >=0.8.0 <0.9.0;
 
 import {ERC20Test} from "./ERC20Test.sol";
 
-import {OLAS} from "../OLAS.sol";
+import {OLAS} from "../../OLAS.sol";
 
 /// @custom:halmos --solver-timeout-assertion 0
 contract SolmateERC20Test is ERC20Test {

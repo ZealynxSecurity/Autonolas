@@ -6,7 +6,7 @@ import "../lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
 import "../lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol";
 import "./IErrors.sol";
 
-import "../lib/solidity_utils/lib.sol";
+// import "../lib/solidity_utils/lib.sol";
 /**
 Votes have a weight depending on time, so that users are committed to the future of (whatever they are voting for).
 Vote weight decays linearly over time. Lock time cannot be more than `MAXTIME` (4 years).
@@ -171,7 +171,7 @@ contract veOLAS is IErrors, IVotes, IERC20, IERC165 {
     /// @param oldLocked Previous locked amount / end lock time for the user.
     /// @param newLocked New locked amount / end lock time for the user.
     /// @param curSupply Current total supply (to avoid using a storage total supply variable)
-    function _checkpoint( //@audit
+    function _checkpoint(
         address account,
         LockedBalance memory oldLocked,
         LockedBalance memory newLocked,
