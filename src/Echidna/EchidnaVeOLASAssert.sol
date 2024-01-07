@@ -74,9 +74,9 @@ contract EchidnaVeOLASAssert {
     }
 
     // =======================================================   
-            // TESTING    //  
-            // DepositFor //
-            //            //    
+    // TESTING    //  
+    // DepositFor //
+    //            //    
 
         // Ensure that all locked amounts are non-negative after deposit
     function assert_locked_amounts_non_negative(uint256 amount) public {
@@ -122,6 +122,87 @@ contract EchidnaVeOLASAssert {
         // Lock time should not change after deposit
         assert(newEndTime == initialEndTime);
     }
+
+    // =======================================================   
+    // TESTING    //  
+    // CreateLock //
+    //            //    
+
+    // Ensure that lock is created correctly
+    function assert_create_lock_successful(uint256 amount, uint256 unlockTime) public {
+        // Call createLock
+        veOlas.createLock(amount, unlockTime);
+
+        // Fetch the new lock details
+        (uint128 lockedAmount, uint64 lockedEndTime) = veOlas.mapLockedBalances(newAddress(2));
+
+        // Assert that the locked amount is as expected
+        assert(lockedAmount == amount);
+        // Assert that the locked end time is set correctly, considering WEEK rounding
+        assert(lockedEndTime == ((block.timestamp + unlockTime) / veOlas.WEEK()) * veOlas.WEEK());
+    }
+
+    // Ensure that function reverts when locking for the zero address
+    function assert_cannot_lock_for_zero_address(uint256 amount, uint256 unlockTime) public {
+        try veOlas.createLock(amount, unlockTime) {
+            assert(false);  // Should not reach here
+        } catch {
+            // Expected to catch a revert
+            assert(true);
+        }
+    }
+
+    // Ensure that function reverts if a lock already exists
+    function assert_cannot_create_duplicate_lock(address existingUser, uint256 amount, uint256 unlockTime) public {
+        veOlas.createLockFor(existingUser, amount, unlockTime);  // Create initial lock
+
+        // Attempt to create another lock for the same user
+        try veOlas.createLockFor(existingUser, amount, unlockTime) {
+            assert(false);  // Should not reach here if lock is already present
+        } catch {
+            // Expected to catch a revert due to an existing lock
+            assert(true);
+
+        }
+    }
+
+    // Ensure overflow is handled safely when creating a lock with a large amount
+    function handle_overflow(address someUser, uint256 unlockTime) public {
+        uint256 largeAmount = type(uint96).max + 1;  // An amount larger than what's allowed
+
+        try veOlas.createLockFor(someUser, largeAmount, unlockTime) {
+            assert(false);  // Expecting this to revert due to overflow
+        } catch {
+            // Expected to catch a revert due to overflow
+            assert(true);
+        }
+    }
+
+    // =======================================================   
+    // TESTING        //  
+    // increaseAmount //
+    //                //  
+
+    function assert_increaseAmount_increases_locked_amount(uint256 increaseValue) public {
+        address user = newAddress(5);
+        // Get the initial locked balance and end time for a user
+        (uint128 initialAmount, uint64 initialEndTime) = veOlas.mapLockedBalances(user);
+
+        veOlas.increaseAmount(increaseValue);
+
+        // Get the new locked balance
+        (uint128 newAmount, ) = veOlas.mapLockedBalances(user);
+
+        // Check that the locked amount has increased by the expected amount
+        assert(newAmount == initialAmount + increaseValue);
+    }
+
+    // =======================================================   
+    // TESTING        //  
+    // withdraw       //
+    //                //  
+
+
 
     function generateAddresses() internal returns (address[] memory) {
         address[] memory generatedAccounts = new address[](5);  // Generate 5 addresses

@@ -97,7 +97,7 @@ contract veOLAS is IErrors, IVotes, IERC20, IERC165 {
     event Supply(uint256 previousSupply, uint256 currentSupply);
 
     // 1 week time
-    uint64 internal constant WEEK = 1 weeks;
+    uint64 public constant WEEK = 1 weeks;
     // Maximum lock time (4 years)
     uint256 public constant MAXTIME = 4 * 365 * 86400;
     // Maximum lock time (4 years) in int128
