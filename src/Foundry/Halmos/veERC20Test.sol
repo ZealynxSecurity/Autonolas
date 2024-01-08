@@ -32,16 +32,16 @@ abstract contract veERC20Test is SymTest, Test {
         vm.assume(other != caller);
 
         // record their current balances
-        uint256 oldBalanceOther = IERC20(token).balanceOf(other);
+        uint256 oldBalanceOther = IERC20(olas).balanceOf(other);
 
-        uint256 oldAllowance = IERC20(token).allowance(other, caller);
+        uint256 oldAllowance = IERC20(olas).allowance(other, caller);
 
         // consider an arbitrary function call to the token from the caller
         vm.prank(caller);
         (bool success,) = address(token).call(abi.encodePacked(selector, args));
         vm.assume(success);
 
-        uint256 newBalanceOther = IERC20(token).balanceOf(other);
+        uint256 newBalanceOther = IERC20(olas).balanceOf(other);
 
         // ensure that the caller cannot spend other' tokens without approvals
         if (newBalanceOther < oldBalanceOther) {

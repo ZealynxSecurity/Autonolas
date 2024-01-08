@@ -17,6 +17,7 @@ contract veSolmateERC20Test is veERC20Test {
         OLAS _olas = new OLAS();
         olas = address(_olas);
 
+        vm.prank(deployer);
         veOLAS token_ = new veOLAS(olas, "name", "symbol");
         token = address(token_);
 
