@@ -5,17 +5,13 @@ import "../OLAS.sol";
 //echidna src/Echidna/EchidnaOLAS.sol --contract EchidnaOLAS
 
 contract EchidnaOLAS is OLAS {
-    event Time(uint256 _indexTimeLaunch, uint256 _indexCurrentTime);
-
     uint256 public amount;
     address public _owner;
     address public spender;
     uint256 private mockTime = block.timestamp;  // Initialize with the current timestamp or a specific start point
 
     // Constructor can stay empty or replicate the OLAS constructor
-    constructor() OLAS() {
-        emit Time(timeLaunch, block.timestamp);
-    }
+    constructor() OLAS() {}
 
     // INVARIANT 1: Total Supply Never Exceeds Ten Year Supply Cap
     function echidna_test_total_supply_cap() public view returns (bool) {
@@ -29,13 +25,11 @@ contract EchidnaOLAS is OLAS {
 
     // INVARIANT 3: Inflation Control
     function echidna_test_inflation_control() public returns (bool) {
-        emit Time(timeLaunch, block.timestamp);
         return inflationControl(amount);
     }
 
     // INVARIANT 4: Remaining Supply After Mint
     function echidna_test_inflation_remainder() public returns (bool) {
-        emit Time(timeLaunch, block.timestamp);
         return inflationRemainder() >= 0;
     }
 
@@ -51,7 +45,6 @@ contract EchidnaOLAS is OLAS {
 
     // INVARIANT 7: Minting Does Not Exceed Yearly Inflation After 10 Years
     function echidna_test_yearly_inflation_control() public returns (bool) {
-        emit Time(timeLaunch, block.timestamp);
 
         // Calculate the dynamic supply cap based on the years passed
         uint256 currentSupplyCap = tenYearSupplyCap;
