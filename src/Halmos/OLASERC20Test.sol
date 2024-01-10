@@ -127,9 +127,9 @@ abstract contract OLASERC20Test is SymTest, Test {
             initialAmount,
             "Allowance not set correctly"
         );
-      // consider an arbitrary function call to the token from the caller
-        // (bool success,) = address(token).call(abi.encodePacked(selector, args));
-        // vm.assume(success);
+    //   // consider an arbitrary function call to the token from the caller
+    //     (bool success,) = address(token).call(abi.encodePacked(selector, args));
+    //     vm.assume(success);
 
         bool t = IERCOLAS(token).increaseAllowance(target, increaseAmount);
         assertTrue(t,"Failed to increase allowance");

@@ -50,4 +50,10 @@ contract veSolmateERC20Test is veERC20Test {
         _checkNoBackdoor(selector, args, caller, other);
     }
 
+    // function check_testFuzz_HalmosBalanceAndSupply(uint256 tenOLABalance1, uint256 oneOLABalance1,uint256 twoOLABalance1,uint256 oneWeek,address sender, address other) public {
+
+    //     _check_testFuzz_HalmosBalanceAndSupply(tenOLABalance1, oneOLABalance1,twoOLABalance1,oneWeek,sender, other);
+    // }
+
+
 }

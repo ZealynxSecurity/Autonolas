@@ -12,7 +12,7 @@ contract CounterTest is Test {
     }
 
     /// Fuzzers
-    function check_testFuzz_InflationControl(uint256 amount) public {
+    function testFuzz_InflationControl(uint256 amount) public {
         olas.inflationControl(amount);
         assert(amount <= olas.inflationRemainder());
     }

@@ -46,6 +46,54 @@ abstract contract veERC20Test is SymTest, Test {
         }
     }
 
+    // function _check_testFuzz_HalmosBalanceAndSupply(uint256 tenOLABalance1, uint256 oneOLABalance1,uint256 twoOLABalance1,uint256 oneWeek,address sender, address other) public {
+
+    //     vm.assume(oneOLABalance1 != 0);
+    //     vm.assume(twoOLABalance1 != 0);
+    //     vm.expectRevert(bytes("Overflow"));
+
+
+    //     vm.prank(sender);
+    //     // Transferir 10 OLAS a account
+    //     olas.transfer(other, tenOLABalance1);
+    //     vm.prank(sender);
+
+    //     // Aprobar OLAS para el contrato veOLAS
+    //     olas.approve(address(token), oneOLABalance1);
+    //     vm.prank(other); // Impersonar account para la aprobación
+    //     olas.approve(address(token), tenOLABalance1);
+
+    //     // Verificar suministro inicial
+    //     uint256 lockDuration = oneWeek; // Duración de 1 semana
+    //     vm.assume(lockDuration != 0);
+    //     // vm.expectRevert(bytes("UnlockTimeIncorrect"));
+
+    //     vm.prank(sender);
+    //     // Crear bloqueos
+    //     token.createLock(oneOLABalance1, lockDuration);
+    //     vm.prank(other); // Impersonar account para crear bloqueo
+    //     token.createLock(twoOLABalance1, lockDuration);
+
+    //     // Verificar suministro y balance
+    //     uint256 balanceDeployer = token.getVotes(address(sender));
+    //     uint256 balanceAccount = token.getVotes(other);
+    //     uint256 supply = token.totalSupplyLocked();
+    //     uint256 sumBalance = balanceAccount + balanceDeployer;
+        
+    //     assert(supply == sumBalance);
+
+    //     uint256 blockNumber = block.number; // Número de bloque actual en Foundry
+
+    //     // Verificar balance en un bloque específico
+    //     balanceDeployer = token.balanceOfAt(address(sender), blockNumber);
+    //     balanceAccount = token.balanceOfAt(other, blockNumber);
+
+    //     supply = token.totalSupplyAt(blockNumber);
+    //     sumBalance = balanceAccount + balanceDeployer;
+
+    //     assert(supply == sumBalance);
+    // }
+
 //=================================================
 // TRANSFER / TRANSFERFROM
 //=================================================

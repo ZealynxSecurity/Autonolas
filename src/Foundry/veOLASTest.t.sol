@@ -37,23 +37,6 @@ contract veOLASTest is Test {
 
     }
 
-    // Testityfuzz
-    function test_createLock() public {
-        veolas.createLock(11593,2293762);
-        
-    }
-
-    function test2(uint256 amount, uint256 unlockTime) public {
-        vm.assume(amount != 0);
-        vm.assume(unlockTime != 0);
-        vm.assume(unlockTime != 1);
-        vm.assume(amount != 1);
-        vm.assume(amount != type(uint96).max);
-
-        veolas.createLock(amount,unlockTime);
-
-    }
-
     function check_testFuzz3(uint256 amount, uint256 unlockTime) public {
         veolas.createLock(amount,unlockTime);
 
@@ -64,6 +47,7 @@ contract veOLASTest is Test {
             // Balance y supply //
             //            //    
 
+// Copy Hardhat Test
     function testBalanceAndSupply() public {
 
         vm.prank(bob);
@@ -103,15 +87,19 @@ contract veOLASTest is Test {
         assertEq(supply, sumBalance, "El suministro total en el bloque no coincide con la suma de los balances");
     }
 
-    function testFuzz_BalanceAndSupply(uint256 tenOLABalance1, uint256 oneOLABalance1,uint256 twoOLABalance1, uint256 oneWeek1) public {
+// NO correcto, Revisar
+    function testFuzz_BalanceAndSupply(uint256 ttenOLABalance1, uint256 toneOLABalance1,uint256 ttwoOLABalance1, uint256 oneWeek1) public {
 
-        vm.assume(oneOLABalance1 != 0);
-        vm.assume(twoOLABalance1 != 0);
-        vm.expectRevert(bytes("Overflow"));
+        uint256 tenOLABalance1 = _between(ttenOLABalance1, 1, type(uint96).max);
+        uint256 oneOLABalance1 = _between(toneOLABalance1, 1, type(uint96).max);
+        uint256 twoOLABalance1 = _between(ttwoOLABalance1, 1, type(uint96).max);
+
+        vm.assume(tenOLABalance1 >= oneOLABalance1 + twoOLABalance1);
         
         vm.prank(bob);
         // Transferir 10 OLAS a account
-        olas.transfer(alice, tenOLABalance1);
+         bool succes = olas.transfer(alice, tenOLABalance1);
+         require (succes);
         vm.prank(bob);
 
         // Aprobar OLAS para el contrato veOLAS
@@ -154,6 +142,7 @@ contract veOLASTest is Test {
             // DEPOSITFOR //
             //            //    
 
+// Copy Hardhat Test
     function test_depositFor() public {
         // PRECONDITIONS:
         uint256 originalLocked = veolas.balanceOf(alice);
@@ -187,6 +176,7 @@ contract veOLASTest is Test {
         // assertEq(updatedLocked, originalLocked + oneOLABalance, "Invariant: Locked amount consistency");
     }
 
+//Revisar
     function testFuzz_depositFor(uint256 rawAmount) public {
         // Asegurar que rawAmount no sea cero
         vm.assume(rawAmount > 0);
@@ -255,6 +245,7 @@ contract veOLASTest is Test {
 
 // =======================================================   
 
+// Copy Hardhat Test
     function test_increaseAmounLock() public {
         vm.startPrank(bob);
         olas.approve(address(veolas), tenOLABalance);
@@ -281,6 +272,7 @@ contract veOLASTest is Test {
         vm.expectRevert();
         veolas.increaseAmount(oneOLABalance); 
     }
+
 
     // Bounding function similar to vm.assume but is more efficient regardless of the fuzzying framework
 	// This is also a guarante bound of the input unlike vm.assume which can only be used for narrow checks     
