@@ -175,4 +175,16 @@ abstract contract OLASERC20Test is SymTest, Test {
             assert(oldAllowance >= newAllowance);
         }
     }
+
+// INVARIANT TEST 
+
+//inflation_remainder_within_cap()
+    function _check_invariant_Foo(bytes4[] memory selectors, bytes[] memory data) public {
+        for (uint i = 0; i < selectors.length; i++) {
+            (bool success,) = address(token).call(abi.encodePacked(selectors[i], data[i]));
+            vm.assume(success);
+            assert(IERCOLAS(token).inflationRemainder() <= IERCOLAS(token).tenYearSupplyCap() - IERCOLAS(token).totalSupply());
+
+        }
+    }
 }

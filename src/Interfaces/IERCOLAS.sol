@@ -42,11 +42,11 @@ interface IERCOLAS {
     function decimals() external view returns (uint8);
 
     // OLAS
-    // Define los errores
-    error ManagerOnly(address sender, address manager);
-    error ZeroAddress();
+    // Events
+    event MinterUpdated(address indexed minter);
+    event OwnerUpdated(address indexed owner);
 
-    // Define las funciones
+    // Functions
     function changeOwner(address newOwner) external;
     function changeMinter(address newMinter) external;
     function mint(address account, uint256 amount) external;
@@ -55,4 +55,15 @@ interface IERCOLAS {
     function burn(uint256 amount) external;
     function decreaseAllowance(address spender, uint256 amount) external returns (bool);
     function increaseAllowance(address spender, uint256 amount) external returns (bool);
+
+    // Constants
+    function oneYear() external view returns (uint256);
+    function tenYearSupplyCap() external view returns (uint256);
+    function maxMintCapFraction() external view returns (uint256);
+    function timeLaunch() external view returns (uint256);
+
+    // State Variables
+    function owner() external view returns (address);
+    function minter() external view returns (address);
+
 }

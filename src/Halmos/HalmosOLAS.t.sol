@@ -61,4 +61,10 @@ contract SolmateERC20Test is OLASERC20Test {
         bytes memory args = svm.createBytes(1024, 'data');
         _checkApprove(selector, args, caller, other);
     }
+
+    function check_invariant_Foo(bytes4[] memory selectors, bytes[] memory data) public {
+         _check_invariant_Foo( selectors,  data);
+    }
+
+
 }
