@@ -9,6 +9,14 @@ sudo forge build -force
 
 # Instructions for use:
 
+To be able to use this repository, you need to have the following installed:
+
+- Foundry
+- Halmos
+- Echidna
+- Medusa
+- Ityfuzz
+- Blazo
 
 # Tools used:
 
@@ -20,14 +28,14 @@ sudo forge build -force
 ### veOLAS
 
 
-## Halmos
+##  Halmos 
 
 ### Explanation
 
 To successfully run the tests, it is necessary to have Foundry and Halmos installed.
 In these contracts, we have employed fuzzing techniques combined with formal verification in order to conduct a much more exhaustive and higher-quality analysis, leveraging their significant advantages over using just a fuzzer.
 
-### OLAS
+### - OLAS
 
 ### Explanation
 
@@ -53,7 +61,7 @@ In this contract, we have utilized:
         function check_transferFrom(address caller, address from, address to, address other, uint256 amount) public virtual {}
     ```
 
-### veOLAS
+### - veOLAS
 
 ### Explanation
 
@@ -81,6 +89,17 @@ In this contract, we have utilized:
 ### veOLAS
 
 ## Ityfuzz
+
+### Explanation
+
+ItyFuzz is a blazing-fast EVM and MoveVM smart contract hybrid fuzzer that combines symbolic execution and fuzzing to find bugs in smart contracts offchain and onchain.
+
+We have utilized the ityfuzz tool in various ways:
+- One approach involved using the "bug()" keyword to intentionally break specific invariants within the code at particular locations.
+- Another method was to integrate it within the existing assert tests of Echidna since the tool itself operates within it, aiming to enhance its capabilities by applying formal verification within the Echidna fuzzer.
+
+![image](https://github.com/scab24/Autonolas/assets/94926493/5cfde79c-9dde-4f5a-950f-3fbe0e502630)
+
 
 ### OLAS
 
