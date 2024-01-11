@@ -6,7 +6,7 @@ import {OLASERC20Test} from "./OLASERC20Test.sol";
 import {OLAS} from "../OLAS.sol";
 
 /// @custom:halmos --solver-timeout-assertion 0
-contract SolmateERC20Test is OLASERC20Test {
+contract HalmosOLAS is OLASERC20Test {
 
     /// @custom:halmos --solver-timeout-branching 1000
     function setUp() public override {
@@ -52,12 +52,12 @@ contract SolmateERC20Test is OLASERC20Test {
         _check_transferFrom(caller, from, to, other, amount);
     }
 
-    function check_test_ERC20_setAndIncreaseAllowance(bytes4 selector, address caller, address target,uint256 initialAmount,uint256 increaseAmount) public {
-        bytes memory args = svm.createBytes(1024, 'data');
-        _check_test_ERC20_setAndIncreaseAllowance( selector, args, caller, target, initialAmount, increaseAmount);
-    }
+    // function check_test_ERC20_setAndIncreaseAllowance(bytes4 selector, address caller, address target,uint256 initialAmount,uint256 increaseAmount) public {
+    //     bytes memory args = svm.createBytes(1024, 'data');
+    //     _check_test_ERC20_setAndIncreaseAllowance( selector, args, caller, target, initialAmount, increaseAmount);
+    // }
 
-    function checkApprove(bytes4 selector, address caller, address other) public {
+    function check_Approve(bytes4 selector, address caller, address other) public {
         bytes memory args = svm.createBytes(1024, 'data');
         _checkApprove(selector, args, caller, other);
     }
