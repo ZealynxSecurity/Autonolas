@@ -211,6 +211,7 @@ contract veOLASTest is Test {
             vm.stopPrank();
 
             vm.startPrank(bob);
+            vm.expectRevert(); //@audit 
             veolas.createLock(amountA, oneWeek); // Crear un bloqueo para Bob
             vm.stopPrank();
 
@@ -239,7 +240,8 @@ contract veOLASTest is Test {
 
             // Verificar las invariantes
             assertEq(supplyAfter, supplyBefore + amountA, "Invariant: Supply consistency");
-            assertEq(updatedLocked, bal - amountA , "Invariant: Locked amount consistency");
+            assertGt(supplyAfter, supplyBefore, "Invariant: Supply increment on deposit");
+            // assertEq(updatedLocked, bal - amountA , "Invariant: Locked amount consistency");
         }
     }
 

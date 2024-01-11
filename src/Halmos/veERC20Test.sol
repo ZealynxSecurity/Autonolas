@@ -11,7 +11,7 @@ import {IERCveOLAS} from "src/Interfaces/IERCveOLAS.sol";
 
 abstract contract veERC20Test is SymTest, Test {
     // erc20 token address
-    address internal token;
+    address public token;
     address internal olas;
 
     // token holders
@@ -45,6 +45,20 @@ abstract contract veERC20Test is SymTest, Test {
             assert(oldAllowance >= oldBalanceOther - newBalanceOther);
         }
     }
+
+    // function _check_increaseAmount_increases_locked_amount(uint256 increaseValue, address caller) public {
+    //     // Get the initial locked balance and end time for a user
+    //     (uint initialAmount) = IERCveOLAS(token).balanceOf(caller);
+
+    //     vm.prank(caller);
+    //     IERCveOLAS(token).increaseAmount(increaseValue);
+
+    //     // Get the new locked balance
+    //     (uint newAmount ) = IERCveOLAS(token).balanceOf(caller);
+
+    //     // Check that the locked amount has increased by the expected amount
+    //     assert(newAmount == initialAmount + increaseValue);
+    // }
 
     // function _check_testFuzz_HalmosBalanceAndSupply(uint256 tenOLABalance1, uint256 oneOLABalance1,uint256 twoOLABalance1,uint256 oneWeek,address sender, address other) public {
 
