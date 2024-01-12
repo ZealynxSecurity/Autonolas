@@ -96,6 +96,7 @@ sudo halmos --contract HalmosveOLAS --solver-timeout-assertion 0
 
 ```
 echidna src/Echidna/EchidnaOLAS.sol --contract EchidnaOLAS
+echidna . --contract EchidnaOLAS
 ```
 
 <img width="606" alt="image" src="https://github.com/scab24/Autonolas/assets/94926493/c7069971-95c6-43da-bfe2-93fc8f5d3817">
@@ -104,6 +105,7 @@ echidna src/Echidna/EchidnaOLAS.sol --contract EchidnaOLAS
 
 ```
 echidna src/Echidna/EchidnaOLASAssert.sol --contract EchidnaOLASAssert --test-mode assertion
+echidna . --contract EchidnaOLASAssert --test-mode assertion
 ```
 
 <img width="603" alt="image" src="https://github.com/scab24/Autonolas/assets/94926493/4410d337-cb90-499f-9f41-b449b4317b8b">
@@ -112,6 +114,7 @@ echidna src/Echidna/EchidnaOLASAssert.sol --contract EchidnaOLASAssert --test-mo
 
 ```
 echidna src/Echidna/EchidnaVeOLASAssert.sol --contract EchidnaVeOLASAssert --test-mode assertion
+echidna . --contract EchidnaVeOLASAssert --test-mode assertion
 ```
 
 <img width="606" alt="image" src="https://github.com/scab24/Autonolas/assets/94926493/7a7b3761-26a9-4f25-98c0-69b937d84a06">
@@ -125,7 +128,7 @@ echidna src/Echidna/EchidnaVeOLASAssert.sol --contract EchidnaVeOLASAssert --tes
 
 
 ```
-sudo medusa fuzz --assertion-mode
+medusa fuzz --assertion-mode
 ```
 
 <img width="425" alt="image" src="https://github.com/scab24/Autonolas/assets/94926493/07add054-ebe6-4102-8fc6-a1690506a0e7">
@@ -136,7 +139,7 @@ sudo medusa fuzz --assertion-mode
 <img width="317" alt="image" src="https://github.com/scab24/Autonolas/assets/94926493/8eb63b56-0737-47ac-97da-fe49af4f151a">
 
 ```
-sudo medusa fuzz --assertion-mode
+medusa fuzz --assertion-mode
 ```
 
 <img width="544" alt="image" src="https://github.com/scab24/Autonolas/assets/94926493/246f03a2-f4fa-41fb-964e-5812b1be7917">
