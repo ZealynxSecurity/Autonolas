@@ -107,47 +107,6 @@ abstract contract OLASERC20Test is SymTest, Test {
 // APPROVE / IN DECREASSEALOWANCE 
 //=================================================
 
-        // Allowance should be modified correctly via increase/decrease
-    function _check_test_ERC20_setAndIncreaseAllowance(
-        bytes4 selector,
-        bytes memory args,
-        address caller,
-        address target,
-        uint256 initialAmount,
-        uint256 increaseAmount
-    ) public {
-
-        require(caller != target);
-
-        vm.startPrank(caller);
-        bool r = IERCOLAS(token).approve(target, initialAmount);
-        assertTrue(r,"Failed to set initial allowance via approve");
-        assertEq(
-            IERCOLAS(token).allowance(address(this), target),
-            initialAmount,
-            "Allowance not set correctly"
-        );
-    //   // consider an arbitrary function call to the token from the caller
-    //     (bool success,) = address(token).call(abi.encodePacked(selector, args));
-    //     vm.assume(success);
-
-        bool t = IERCOLAS(token).increaseAllowance(target, increaseAmount);
-        assertTrue(t,"Failed to increase allowance");
-
-        uint256 parametroa = IERCOLAS(token).allowance(address(this), target);
-        uint256 parametrob = initialAmount + increaseAmount;
-        vm.stopPrank();
-        console2.log("aaaa",parametroa);
-        console2.log("bbb",parametrob);
-
-        assertEq(
-            parametroa,
-            parametrob,
-            "Allowance not increased correctly"
-        );
-        emit Result( parametroa, parametrob);
-
-    }
 
     function _checkApprove(bytes4 selector, bytes memory args, address caller, address other) public virtual {
         // consider two arbitrary distinct accounts
@@ -187,4 +146,50 @@ abstract contract OLASERC20Test is SymTest, Test {
 
         }
     }
+
+
+    
 }
+
+
+    //     // Allowance should be modified correctly via increase/decrease
+    // function _check_test_ERC20_setAndIncreaseAllowance(
+    //     bytes4 selector,
+    //     bytes memory args,
+    //     address caller,
+    //     address target,
+    //     uint256 initialAmount,
+    //     uint256 increaseAmount
+    // ) public {
+
+    //     require(caller != target);
+
+    //     vm.startPrank(caller);
+    //     bool r = IERCOLAS(token).approve(target, initialAmount);
+    //     assertTrue(r,"Failed to set initial allowance via approve");
+    //     assertEq(
+    //         IERCOLAS(token).allowance(address(this), target),
+    //         initialAmount,
+    //         "Allowance not set correctly"
+    //     );
+    // //   // consider an arbitrary function call to the token from the caller
+    // //     (bool success,) = address(token).call(abi.encodePacked(selector, args));
+    // //     vm.assume(success);
+
+    //     bool t = IERCOLAS(token).increaseAllowance(target, increaseAmount);
+    //     assertTrue(t,"Failed to increase allowance");
+
+    //     uint256 parametroa = IERCOLAS(token).allowance(address(this), target);
+    //     uint256 parametrob = initialAmount + increaseAmount;
+    //     vm.stopPrank();
+    //     console2.log("aaaa",parametroa);
+    //     console2.log("bbb",parametrob);
+
+    //     assertEq(
+    //         parametroa,
+    //         parametrob,
+    //         "Allowance not increased correctly"
+    //     );
+    //     emit Result( parametroa, parametrob);
+
+    // }

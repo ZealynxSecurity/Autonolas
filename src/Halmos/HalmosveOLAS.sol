@@ -7,7 +7,7 @@ import {veOLAS} from "../veOLAS.sol";
 import {OLAS} from "../OLAS.sol";
 
 /// @custom:halmos --solver-timeout-assertion 0
-contract veSolmateERC20Test is veERC20Test {
+contract HalmosveOLAS is veERC20Test {
 
     /// @custom:halmos --solver-timeout-branching 1000
     function setUp() public override {
@@ -49,6 +49,8 @@ contract veSolmateERC20Test is veERC20Test {
         bytes memory args = svm.createBytes(1024, 'data');
         _checkNoBackdoor(selector, args, caller, other);
     }
+
+
 
     // function check_increaseAmount_increases_locked_amount(uint256 increaseValue, address caller) public {
     //     _check_increaseAmount_increases_locked_amount(increaseValue,caller);

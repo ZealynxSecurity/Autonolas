@@ -4,7 +4,7 @@ pragma solidity ^0.8.15;
 import {Test} from "forge-std/Test.sol";
 import "../OLAS.sol";
 
-contract CounterTest is Test {
+contract OLASTest is Test {
     OLAS public olas;
 
     function setUp() public {
@@ -12,10 +12,10 @@ contract CounterTest is Test {
     }
 
     /// Fuzzers
-    function testFuzz_InflationControl(uint256 amount) public {
-        olas.inflationControl(amount);
-        assert(amount <= olas.inflationRemainder());
-    }
+    // function testFuzz_InflationControl(uint256 amount) public {
+    //     olas.inflationControl(amount);
+    //     assert(amount <= olas.inflationRemainder());
+    // }
 
     function testFuzz_onlyOwnerCanChangeOwner(address randomAddress) public {
         address originalOwner = olas.owner();

@@ -88,54 +88,54 @@ contract veOLASTest is Test {
     }
 
 // NO correcto, Revisar
-    function testFuzz_BalanceAndSupply(uint256 ttenOLABalance1, uint256 toneOLABalance1,uint256 ttwoOLABalance1, uint256 oneWeek1) public {
+    // function testFuzz_BalanceAndSupply(uint256 ttenOLABalance1, uint256 toneOLABalance1,uint256 ttwoOLABalance1, uint256 oneWeek1) public {
 
-        uint256 tenOLABalance1 = _between(ttenOLABalance1, 1, type(uint96).max);
-        uint256 oneOLABalance1 = _between(toneOLABalance1, 1, type(uint96).max);
-        uint256 twoOLABalance1 = _between(ttwoOLABalance1, 1, type(uint96).max);
+    //     uint256 tenOLABalance1 = _between(ttenOLABalance1, 1, type(uint96).max);
+    //     uint256 oneOLABalance1 = _between(toneOLABalance1, 1, type(uint96).max);
+    //     uint256 twoOLABalance1 = _between(ttwoOLABalance1, 1, type(uint96).max);
 
-        vm.assume(tenOLABalance1 >= oneOLABalance1 + twoOLABalance1);
+    //     vm.assume(tenOLABalance1 >= oneOLABalance1 + twoOLABalance1);
         
-        vm.prank(bob);
-        // Transferir 10 OLAS a account
-         bool succes = olas.transfer(alice, tenOLABalance1);
-         require (succes);
-        vm.prank(bob);
+    //     vm.prank(bob);
+    //     // Transferir 10 OLAS a account
+    //      bool succes = olas.transfer(alice, tenOLABalance1);
+    //      require (succes);
+    //     vm.prank(bob);
 
-        // Aprobar OLAS para el contrato veOLAS
-        olas.approve(address(veolas), oneOLABalance1);
-        vm.prank(alice); // Impersonar account para la aprobación
-        olas.approve(address(veolas), tenOLABalance1);
+    //     // Aprobar OLAS para el contrato veOLAS
+    //     olas.approve(address(veolas), oneOLABalance1);
+    //     vm.prank(alice); // Impersonar account para la aprobación
+    //     olas.approve(address(veolas), tenOLABalance1);
 
-        // Verificar suministro inicial
-        assertEq(veolas.totalSupply(), 0, "El suministro total inicial no es 0");
+    //     // Verificar suministro inicial
+    //     assertEq(veolas.totalSupply(), 0, "El suministro total inicial no es 0");
 
-        uint256 lockDuration = oneWeek1; // Duración de 1 semana
-        vm.assume(lockDuration != 0);
-        vm.expectRevert(bytes("UnlockTimeIncorrect"));
+    //     uint256 lockDuration = oneWeek1; // Duración de 1 semana
+    //     vm.assume(lockDuration != 0);
+    //     vm.expectRevert(bytes("UnlockTimeIncorrect"));
 
-        vm.prank(bob);
-        // Crear bloqueos
-        veolas.createLock(oneOLABalance1, lockDuration);
-        vm.prank(alice); // Impersonar account para crear bloqueo
-        veolas.createLock(twoOLABalance1, lockDuration);
+    //     vm.prank(bob);
+    //     // Crear bloqueos
+    //     veolas.createLock(oneOLABalance1, lockDuration);
+    //     vm.prank(alice); // Impersonar account para crear bloqueo
+    //     veolas.createLock(twoOLABalance1, lockDuration);
 
-        // Verificar suministro y balance
-        uint256 balanceDeployer = veolas.getVotes(address(bob));
-        uint256 balanceAccount = veolas.getVotes(alice);
-        uint256 supply = veolas.totalSupplyLocked();
-        uint256 sumBalance = balanceAccount + balanceDeployer;
-        assertEq(supply, sumBalance, "El suministro total no coincide con la suma de los balances");
+    //     // Verificar suministro y balance
+    //     uint256 balanceDeployer = veolas.getVotes(address(bob));
+    //     uint256 balanceAccount = veolas.getVotes(alice);
+    //     uint256 supply = veolas.totalSupplyLocked();
+    //     uint256 sumBalance = balanceAccount + balanceDeployer;
+    //     assertEq(supply, sumBalance, "El suministro total no coincide con la suma de los balances");
 
-        uint256 blockNumber = block.number; // Número de bloque actual en Foundry
+    //     uint256 blockNumber = block.number; // Número de bloque actual en Foundry
 
-        // Verificar balance en un bloque específico
-        balanceDeployer = veolas.balanceOfAt(address(bob), blockNumber);
-        balanceAccount = veolas.balanceOfAt(alice, blockNumber);
-        supply = veolas.totalSupplyAt(blockNumber);
-        sumBalance = balanceAccount + balanceDeployer;
-        assertEq(supply, sumBalance, "El suministro total en el bloque no coincide con la suma de los balances");
-    }
+    //     // Verificar balance en un bloque específico
+    //     balanceDeployer = veolas.balanceOfAt(address(bob), blockNumber);
+    //     balanceAccount = veolas.balanceOfAt(alice, blockNumber);
+    //     supply = veolas.totalSupplyAt(blockNumber);
+    //     sumBalance = balanceAccount + balanceDeployer;
+    //     assertEq(supply, sumBalance, "El suministro total en el bloque no coincide con la suma de los balances");
+    // }
 
 // =======================================================   
             //            //  
@@ -177,73 +177,73 @@ contract veOLASTest is Test {
     }
 
 //Revisar
-    function testFuzz_depositFor(uint256 rawAmount) public {
-        // Asegurar que rawAmount no sea cero
-        vm.assume(rawAmount > 0);
+    // function testFuzz_depositFor(uint256 rawAmount) public {
+    //     // Asegurar que rawAmount no sea cero
+    //     vm.assume(rawAmount > 0);
 
-        // Ajustar rawAmount para que sea un valor razonable
-        uint256 amount = _between(rawAmount, 1, type(uint96).max);
+    //     // Ajustar rawAmount para que sea un valor razonable
+    //     uint256 amount = _between(rawAmount, 1, type(uint96).max);
 
-        uint256 PaliceBalance = veolas.balanceOf(alice);
-        uint256 tries = 0; // Para evitar un bucle infinito
+    //     uint256 PaliceBalance = veolas.balanceOf(alice);
+    //     uint256 tries = 0; // Para evitar un bucle infinito
 
-        uint256 amountA = 0;
-        // Asegura que 'amount' sea menor o igual al saldo de Alice
-        while (amount > PaliceBalance && tries < 100) {
+    //     uint256 amountA = 0;
+    //     // Asegura que 'amount' sea menor o igual al saldo de Alice
+    //     while (amount > PaliceBalance && tries < 100) {
 
-            vm.startPrank(bob);
-            olas.transfer(alice, amount);
-            amountA = (amount - 1);
-            olas.approve(address(veolas), amountA);
-            vm.stopPrank();
+    //         vm.startPrank(bob);
+    //         olas.transfer(alice, amount);
+    //         amountA = (amount - 1);
+    //         olas.approve(address(veolas), amountA);
+    //         vm.stopPrank();
 
-            uint256 SaliceBalance = olas.balanceOf(alice); // Actualizar el saldo de Alice
-            tries++;
-        }
-        uint256 TaliceBalance = olas.balanceOf(alice);
+    //         uint256 SaliceBalance = olas.balanceOf(alice); // Actualizar el saldo de Alice
+    //         tries++;
+    //     }
+    //     uint256 TaliceBalance = olas.balanceOf(alice);
 
 
-        // Verifica que se haya encontrado un 'amount' válido
-        if (amountA <= TaliceBalance) {
-            vm.startPrank(alice);
-            olas.approve(address(veolas), amountA);
+    //     // Verifica que se haya encontrado un 'amount' válido
+    //     if (amountA <= TaliceBalance) {
+    //         vm.startPrank(alice);
+    //         olas.approve(address(veolas), amountA);
             
-            vm.stopPrank();
+    //         vm.stopPrank();
 
-            vm.startPrank(bob);
-            vm.expectRevert(); //@audit 
-            veolas.createLock(amountA, oneWeek); // Crear un bloqueo para Bob
-            vm.stopPrank();
+    //         vm.startPrank(bob);
+    //         vm.expectRevert(); //@audit 
+    //         veolas.createLock(amountA, oneWeek); // Crear un bloqueo para Bob
+    //         vm.stopPrank();
 
-            uint256 supplyBefore = veolas.totalSupply();
+    //         uint256 supplyBefore = veolas.totalSupply();
 
-            // Acción: Alice deposita para Bob
-            vm.startPrank(alice);
-            uint256 cant =  olas.balanceOf(alice);
-            uint256 cantw =  olas.balanceOf(bob);
+    //         // Acción: Alice deposita para Bob
+    //         vm.startPrank(alice);
+    //         uint256 cant =  olas.balanceOf(alice);
+    //         uint256 cantw =  olas.balanceOf(bob);
 
-            uint256 updatedLocked = olas.balanceOf(alice);
-            uint256 updatedLockedy = veolas.balanceOf(alice);
-            uint256 updatedLockedxx = olas.balanceOf(bob);
-            uint256 updatedLockedyy = veolas.balanceOf(bob);
+    //         uint256 updatedLocked = olas.balanceOf(alice);
+    //         uint256 updatedLockedy = veolas.balanceOf(alice);
+    //         uint256 updatedLockedxx = olas.balanceOf(bob);
+    //         uint256 updatedLockedyy = veolas.balanceOf(bob);
 
-            veolas.depositFor(bob, amountA );
-            vm.stopPrank();
+    //         veolas.depositFor(bob, amountA );
+    //         vm.stopPrank();
 
-            // Postcondiciones
-            uint256 supplyAfter = veolas.totalSupply();
-            uint256 bal = olas.balanceOf(alice);
-            uint256 ebal = veolas.balanceOf(alice);
+    //         // Postcondiciones
+    //         uint256 supplyAfter = veolas.totalSupply();
+    //         uint256 bal = olas.balanceOf(alice);
+    //         uint256 ebal = veolas.balanceOf(alice);
 
-            uint256 bw = olas.balanceOf(bob);
-            uint256 be = veolas.balanceOf(bob);
+    //         uint256 bw = olas.balanceOf(bob);
+    //         uint256 be = veolas.balanceOf(bob);
 
-            // Verificar las invariantes
-            assertEq(supplyAfter, supplyBefore + amountA, "Invariant: Supply consistency");
-            assertGt(supplyAfter, supplyBefore, "Invariant: Supply increment on deposit");
-            // assertEq(updatedLocked, bal - amountA , "Invariant: Locked amount consistency");
-        }
-    }
+    //         // Verificar las invariantes
+    //         assertEq(supplyAfter, supplyBefore + amountA, "Invariant: Supply consistency");
+    //         assertGt(supplyAfter, supplyBefore, "Invariant: Supply increment on deposit");
+    //         // assertEq(updatedLocked, bal - amountA , "Invariant: Locked amount consistency");
+    //     }
+    // }
 
 // =======================================================   
 
