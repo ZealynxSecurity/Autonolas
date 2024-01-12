@@ -132,7 +132,7 @@ echidna . --contract EchidnaVeOLASAssert --test-mode assertion
 
 
 ```
-medusa fuzz --assertion-mode
+medusa fuzz
 ```
 
 <img width="425" alt="image" src="image/9.png">
@@ -145,7 +145,7 @@ medusa fuzz --assertion-mode
 
 
 ```
-medusa fuzz --assertion-mode
+medusa fuzz
 ```
 
 <img width="544" alt="image" src="image/11.png">
