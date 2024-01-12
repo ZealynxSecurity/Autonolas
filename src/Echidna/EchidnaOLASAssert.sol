@@ -6,7 +6,7 @@ import "../OLAS.sol";
 contract EchidnaOLASAssert {
 
     OLAS olas;
-    uint256 private mockTime = block.timestamp;  // Initialize with the current timestamp or a specific start point
+    uint256 private mockTime = block.timestamp; 
 
     constructor() {
         olas = new OLAS();
@@ -23,7 +23,7 @@ contract EchidnaOLASAssert {
     }
 
     // Remaining Supply After Mint
-    function assert_inflation_remainder() public {
+    function assert_inflation_remainder() public view {
         assert(olas.inflationRemainder() >= 0);
     }
 
@@ -38,7 +38,7 @@ contract EchidnaOLASAssert {
     }
 
     // Minting Does Not Exceed Yearly Inflation After 10 Years
-    function assert_yearly_inflation_control() public {
+    function assert_yearly_inflation_control() public view {
         // Calculate the dynamic supply cap based on the years passed
         uint256 currentSupplyCap = olas.tenYearSupplyCap();
         uint256 numYears = (block.timestamp - olas.timeLaunch()) / olas.oneYear();
