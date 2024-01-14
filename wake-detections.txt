@@ -1,0 +1,121 @@
+
+
+╭─ [HIGH][MEDIUM] Unchecked return value [unchecked-return-value] ───────────────────────────────────────────────────────────╮
+│   362         _checkpoint(account, oldLocked, lockedBalance, uint128(supplyAfter));                                        │
+│   363         if (amount > 0) {                                                                                            │
+│   364             // OLAS is a solmate-based ERC20 token with optimized transferFrom() that either returns true or reverts │
+│ ❱ 365             IERC20(token).transferFrom(msg.sender, address(this), amount);                                           │
+│   366         }                                                                                                            │
+│   367                                                                                                                      │
+│   368                                                                                                                      │
+╰─ src/veOLAS.sol ───────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+╭─ [HIGH][MEDIUM] Unchecked return value [unchecked-return-value] ───────────────────────────────────────────────────╮
+│   532         emit Supply(supplyBefore, supplyAfter);                                                              │
+│   533                                                                                                              │
+│   534         // OLAS is a solmate-based ERC20 token with optimized transfer() that either returns true or reverts │
+│ ❱ 535         IERC20(token).transfer(msg.sender, amount);                                                          │
+│   536     }                                                                                                        │
+│   537                                                                                                              │
+│   538                                                                                                              │
+╰─ src/veOLAS.sol ───────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+╭─ [WARNING][MEDIUM] Not all execution paths have assigned return values [missing-return] ─────────────╮
+│   143     /// @dev Gets the most recently recorded user point for `account`.                         │
+│   144     /// @param account Account address.                                                        │
+│   145     /// @return pv Last checkpoint.                                                            │
+│ ❱ 146     function getLastUserPoint(address account) external view returns (PointVoting memory pv) { │
+│   147         uint256 lastPointNumber = mapUserPoints[account].length;                               │
+│   148         if (lastPointNumber > 0) {                                                             │
+│   149                                                                                                │
+╰─ src/veOLAS.sol ─────────────────────────────────────────────────────────────────────────────────────╯
+
+
+╭─ [WARNING][MEDIUM] Not all execution paths have assigned return values [missing-return] ─────╮
+│   540     /// @param account Account address for user points.                                │
+│   541     /// @return point Point with the approximate index number for the specified block. │
+│   542     /// @return minPointNumber Point number.                                           │
+│ ❱ 543     function _findPointByBlock(uint256 blockNumber, address account) internal view     │
+│   544         returns (PointVoting memory point, uint256 minPointNumber)                     │
+│   545     {                                                                                  │
+│   546                                                                                        │
+╰─ src/veOLAS.sol ─────────────────────────────────────────────────────────────────────────────╯
+
+
+╭─ [WARNING][MEDIUM] Not all execution paths have assigned return values [missing-return] ─────────────────╮
+│   591     /// @param account Account address.                                                            │
+│   592     /// @param ts Time to get voting power at.                                                     │
+│   593     /// @return vBalance Account voting power.                                                     │
+│ ❱ 594     function _balanceOfLocked(address account, uint64 ts) public view returns (uint256 vBalance) { │
+│   595         uint256 pointNumber = mapUserPoints[account].length;                                       │
+│   596         if (pointNumber > 0) {                                                                     │
+│   597                                                                                                    │
+╰─ src/veOLAS.sol ─────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+╭─ [WARNING][MEDIUM] Not all execution paths have assigned return values [missing-return] ───────────────────────╮
+│   620     /// @param account Account address.                                                                  │
+│   621     /// @param blockNumber Block number.                                                                 │
+│   622     /// @return balance Account balance.                                                                 │
+│ ❱ 623     function balanceOfAt(address account, uint256 blockNumber) external view returns (uint256 balance) { │
+│   624         // Find point with the closest block number to the provided one                                  │
+│   625         (PointVoting memory uPoint, ) = _findPointByBlock(blockNumber, account);                         │
+│   626                                                                                                          │
+╰─ src/veOLAS.sol ───────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+╭─ [WARNING][MEDIUM] Not all execution paths have assigned return values [missing-return] ───────────────────────────────╮
+│   670     /// @param account Account address.                                                                          │
+│   671     /// @param blockNumber Block number.                                                                         │
+│   672     /// @return balance Voting balance / power.                                                                  │
+│ ❱ 673     function getPastVotes(address account, uint256 blockNumber) public view override returns (uint256 balance) { │
+│   674         // Find the user point for the provided block number                                                     │
+│   675         (PointVoting memory uPoint, ) = _findPointByBlock(blockNumber, account);                                 │
+│   676                                                                                                                  │
+╰─ src/veOLAS.sol ───────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+╭─ [WARNING][MEDIUM] Not all execution paths have assigned return values [missing-return] ──────────────────────────────╮
+│   688     /// @param lastPoint The point (bias/slope) to start the search from.                                       │
+│   689     /// @param ts Time to calculate the total voting power at.                                                  │
+│   690     /// @return vSupply Total voting power at that time.                                                        │
+│ ❱ 691     function _supplyLockedAt(PointVoting memory lastPoint, uint64 ts) internal view returns (uint256 vSupply) { │
+│   692         // The timestamp is rounded and < 2^64-1                                                                │
+│   693         uint64 tStep = (lastPoint.ts / WEEK) * WEEK;                                                            │
+│   694                                                                                                                 │
+╰─ src/veOLAS.sol ──────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+╭─ [WARNING][MEDIUM] Not all execution paths have assigned return values [missing-return] ─────────╮
+│   724     /// @dev Gets total token supply at a specific block number.                           │
+│   725     /// @param blockNumber Block number.                                                   │
+│   726     /// @return supplyAt Supply at the specified block number.                             │
+│ ❱ 727     function totalSupplyAt(uint256 blockNumber) external view returns (uint256 supplyAt) { │
+│   728         // Find point with the closest block number to the provided one                    │
+│   729         (PointVoting memory sPoint, ) = _findPointByBlock(blockNumber, address(0));        │
+│   730                                                                                            │
+╰─ src/veOLAS.sol ─────────────────────────────────────────────────────────────────────────────────╯
+
+
+╭─ [INFO][HIGH] Interface not used [unused-contract] ─────────────────────────────────────────────────╮
+│   3                                                                                                 │
+│   4 /// @dev Interface of the ERC20 standard as defined in the EIP.                                 │
+│   5 /// @dev This includes the optional name, symbol, and decimals metadata.                        │
+│ ❱ 6 interface IERCOLAS {                                                                            │
+│   7     /// @dev Emitted when `value` tokens are moved from one account (`from`) to another (`to`). │
+│   8     event Transfer(address indexed from, address indexed to, uint256 value);                    │
+│   9                                                                                                 │
+╰─ src/Interfaces/IERCOLAS.sol ───────────────────────────────────────────────────────────────────────╯
+
+
+╭─ [INFO][HIGH] Interface not used [unused-contract] ─────────────────────────────────────────────────╮
+│   3                                                                                                 │
+│   4 /// @dev Interface of the ERC20 standard as defined in the EIP.                                 │
+│   5 /// @dev This includes the optional name, symbol, and decimals metadata.                        │
+│ ❱ 6 interface IERCveOLAS {                                                                          │
+│   7     /// @dev Emitted when `value` tokens are moved from one account (`from`) to another (`to`). │
+│   8     event Transfer(address indexed from, address indexed to, uint256 value);                    │
+│   9                                                                                                 │
+╰─ src/Interfaces/IERCveOLAS.sol ─────────────────────────────────────────────────────────────────────╯

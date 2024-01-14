@@ -1,0 +1,4196 @@
+Mutation testing report:
+Number of mutations:    381
+Killed:                 99 / 381
+
+Mutations:
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 17
+    Result: Lived
+    Original line:
+                 return totalSupply <= tenYearSupplyCap;
+
+    Mutated line:
+                 return totalSupply < tenYearSupplyCap;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 42
+    Result: Lived
+    Original line:
+                 return allowance[_owner][spender] <= balanceOf[_owner];
+
+    Mutated line:
+                 return allowance[_owner][spender] < balanceOf[_owner];
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 53
+    Result: Lived
+    Original line:
+                 if (numYears > 9) {
+
+    Mutated line:
+                 if (numYears >= 9) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 55
+    Result: Lived
+    Original line:
+                     for (uint256 i = 0; i < numYears; ++i) {
+
+    Mutated line:
+                     for (uint256 i = 0; i <= numYears; ++i) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 61
+    Result: Lived
+    Original line:
+                 return totalSupply <= currentSupplyCap;
+
+    Mutated line:
+                 return totalSupply < currentSupplyCap;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 17
+    Result: Lived
+    Original line:
+                 return totalSupply <= tenYearSupplyCap;
+
+    Mutated line:
+                 return totalSupply > tenYearSupplyCap;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 22
+    Result: Lived
+    Original line:
+                 return owner != address(0) && minter != address(0);
+
+    Mutated line:
+                 return owner == address(0) && minter != address(0);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 22
+    Result: Lived
+    Original line:
+                 return owner != address(0) && minter != address(0);
+
+    Mutated line:
+                 return owner != address(0) && minter == address(0);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 32
+    Result: Lived
+    Original line:
+                 return inflationRemainder() >= 0;
+
+    Mutated line:
+                 return inflationRemainder() < 0;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 37
+    Result: Lived
+    Original line:
+                 return totalSupply >= 0;
+
+    Mutated line:
+                 return totalSupply < 0;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 42
+    Result: Lived
+    Original line:
+                 return allowance[_owner][spender] <= balanceOf[_owner];
+
+    Mutated line:
+                 return allowance[_owner][spender] > balanceOf[_owner];
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 53
+    Result: Lived
+    Original line:
+                 if (numYears > 9) {
+
+    Mutated line:
+                 if (numYears <= 9) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 55
+    Result: Lived
+    Original line:
+                     for (uint256 i = 0; i < numYears; ++i) {
+
+    Mutated line:
+                     for (uint256 i = 0; i >= numYears; ++i) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 61
+    Result: Lived
+    Original line:
+                 return totalSupply <= currentSupplyCap;
+
+    Mutated line:
+                 return totalSupply > currentSupplyCap;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 50
+    Result: Lived
+    Original line:
+                 uint256 numYears = (block.timestamp - timeLaunch) / oneYear;
+
+    Mutated line:
+                 uint256 numYears = (block.timestamp - timeLaunch) * oneYear;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 50
+    Result: Lived
+    Original line:
+                 uint256 numYears = (block.timestamp - timeLaunch) / oneYear;
+
+    Mutated line:
+                 uint256 numYears = (block.timestamp + timeLaunch) / oneYear;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 56
+    Result: Lived
+    Original line:
+                         currentSupplyCap += (currentSupplyCap * maxMintCapFraction) / 100;
+
+    Mutated line:
+                         currentSupplyCap += (currentSupplyCap * maxMintCapFraction) * 100;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 56
+    Result: Lived
+    Original line:
+                         currentSupplyCap += (currentSupplyCap * maxMintCapFraction) / 100;
+
+    Mutated line:
+                         currentSupplyCap += (currentSupplyCap / maxMintCapFraction) / 100;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 54
+    Result: Lived
+    Original line:
+                     numYears -= 9; // Adjust for the first 10 years
+
+    Mutated line:
+                     numYears += 9; // Adjust for the first 10 years
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 56
+    Result: Lived
+    Original line:
+                         currentSupplyCap += (currentSupplyCap * maxMintCapFraction) / 100;
+
+    Mutated line:
+                         currentSupplyCap -= (currentSupplyCap * maxMintCapFraction) / 100;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLAS.sol
+    Line nr: 13
+    Result: Lived
+    Original line:
+             constructor() OLAS() {}
+
+    Mutated line:
+             constructor()  {}
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Halmos/HalmosveOLAS.sol
+    Line nr: 38
+    Result: Lived
+    Original line:
+                     for (uint j = 0; j < i; j++) {
+
+    Mutated line:
+                     for (uint j = 0; j <= i; j++) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Halmos/HalmosveOLAS.sol
+    Line nr: 33
+    Result: Lived
+    Original line:
+                 for (uint i = 0; i < holders.length; i++) {
+
+    Mutated line:
+                 for (uint i = 0; i <= holders.length; i++) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Halmos/HalmosveOLAS.sol
+    Line nr: 38
+    Result: Lived
+    Original line:
+                     for (uint j = 0; j < i; j++) {
+
+    Mutated line:
+                     for (uint j = 0; j >= i; j++) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Halmos/HalmosveOLAS.sol
+    Line nr: 33
+    Result: Lived
+    Original line:
+                 for (uint i = 0; i < holders.length; i++) {
+
+    Mutated line:
+                 for (uint i = 0; i >= holders.length; i++) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Halmos/HalmosveOLAS.sol
+    Line nr: 49
+    Result: Lived
+    Original line:
+                 _checkNoBackdoor(selector, args, caller, other);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 16
+    Result: Lived
+    Original line:
+                 assert(olas.totalSupply() <= olas.tenYearSupplyCap());
+
+    Mutated line:
+                 assert(olas.totalSupply() < olas.tenYearSupplyCap());
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 36
+    Result: Lived
+    Original line:
+                 assert(olas.allowance(_owner, spender) <= olas.balanceOf(_owner));
+
+    Mutated line:
+                 assert(olas.allowance(_owner, spender) < olas.balanceOf(_owner));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 46
+    Result: Lived
+    Original line:
+                 if (numYears > 9) {
+
+    Mutated line:
+                 if (numYears >= 9) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 48
+    Result: Lived
+    Original line:
+                     for (uint256 i = 0; i < numYears; ++i) {
+
+    Mutated line:
+                     for (uint256 i = 0; i <= numYears; ++i) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 54
+    Result: Lived
+    Original line:
+                 assert(olas.totalSupply() <= currentSupplyCap);
+
+    Mutated line:
+                 assert(olas.totalSupply() < currentSupplyCap);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 63
+    Result: Lived
+    Original line:
+                 if (newOwner == address(0) || newOwner == originalOwner) {
+
+    Mutated line:
+                 if (newOwner != address(0) || newOwner == originalOwner) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 63
+    Result: Lived
+    Original line:
+                 if (newOwner == address(0) || newOwner == originalOwner) {
+
+    Mutated line:
+                 if (newOwner == address(0) || newOwner != originalOwner) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 71
+    Result: Lived
+    Original line:
+                 assert(olas.owner() == newOwner);
+
+    Mutated line:
+                 assert(olas.owner() != newOwner);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 79
+    Result: Lived
+    Original line:
+                 assert(olas.inflationRemainder() <= olas.tenYearSupplyCap() - olas.totalSupply());
+
+    Mutated line:
+                 assert(olas.inflationRemainder() < olas.tenYearSupplyCap() - olas.totalSupply());
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 16
+    Result: Lived
+    Original line:
+                 assert(olas.totalSupply() <= olas.tenYearSupplyCap());
+
+    Mutated line:
+                 assert(olas.totalSupply() > olas.tenYearSupplyCap());
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 21
+    Result: Lived
+    Original line:
+                 assert(olas.owner() != address(0) && olas.minter() != address(0));
+
+    Mutated line:
+                 assert(olas.owner() == address(0) && olas.minter() != address(0));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 21
+    Result: Lived
+    Original line:
+                 assert(olas.owner() != address(0) && olas.minter() != address(0));
+
+    Mutated line:
+                 assert(olas.owner() != address(0) && olas.minter() == address(0));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 26
+    Result: Lived
+    Original line:
+                 assert(olas.inflationRemainder() >= 0);
+
+    Mutated line:
+                 assert(olas.inflationRemainder() < 0);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 31
+    Result: Lived
+    Original line:
+                 assert(olas.totalSupply() >= 0);
+
+    Mutated line:
+                 assert(olas.totalSupply() < 0);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 36
+    Result: Lived
+    Original line:
+                 assert(olas.allowance(_owner, spender) <= olas.balanceOf(_owner));
+
+    Mutated line:
+                 assert(olas.allowance(_owner, spender) > olas.balanceOf(_owner));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 46
+    Result: Lived
+    Original line:
+                 if (numYears > 9) {
+
+    Mutated line:
+                 if (numYears <= 9) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 48
+    Result: Lived
+    Original line:
+                     for (uint256 i = 0; i < numYears; ++i) {
+
+    Mutated line:
+                     for (uint256 i = 0; i >= numYears; ++i) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 54
+    Result: Lived
+    Original line:
+                 assert(olas.totalSupply() <= currentSupplyCap);
+
+    Mutated line:
+                 assert(olas.totalSupply() > currentSupplyCap);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 63
+    Result: Lived
+    Original line:
+                 if (newOwner == address(0) || newOwner == originalOwner) {
+
+    Mutated line:
+                 if (newOwner != address(0) || newOwner == originalOwner) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 63
+    Result: Lived
+    Original line:
+                 if (newOwner == address(0) || newOwner == originalOwner) {
+
+    Mutated line:
+                 if (newOwner == address(0) || newOwner != originalOwner) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 71
+    Result: Lived
+    Original line:
+                 assert(olas.owner() == newOwner);
+
+    Mutated line:
+                 assert(olas.owner() != newOwner);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 79
+    Result: Lived
+    Original line:
+                 assert(olas.inflationRemainder() <= olas.tenYearSupplyCap() - olas.totalSupply());
+
+    Mutated line:
+                 assert(olas.inflationRemainder() > olas.tenYearSupplyCap() - olas.totalSupply());
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 43
+    Result: Lived
+    Original line:
+                 uint256 numYears = (block.timestamp - olas.timeLaunch()) / olas.oneYear();
+
+    Mutated line:
+                 uint256 numYears = (block.timestamp - olas.timeLaunch()) * olas.oneYear();
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 43
+    Result: Lived
+    Original line:
+                 uint256 numYears = (block.timestamp - olas.timeLaunch()) / olas.oneYear();
+
+    Mutated line:
+                 uint256 numYears = (block.timestamp + olas.timeLaunch()) / olas.oneYear();
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 49
+    Result: Lived
+    Original line:
+                         currentSupplyCap += (currentSupplyCap * olas.maxMintCapFraction()) / 100;
+
+    Mutated line:
+                         currentSupplyCap += (currentSupplyCap * olas.maxMintCapFraction()) * 100;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 49
+    Result: Lived
+    Original line:
+                         currentSupplyCap += (currentSupplyCap * olas.maxMintCapFraction()) / 100;
+
+    Mutated line:
+                         currentSupplyCap += (currentSupplyCap / olas.maxMintCapFraction()) / 100;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 79
+    Result: Lived
+    Original line:
+                 assert(olas.inflationRemainder() <= olas.tenYearSupplyCap() - olas.totalSupply());
+
+    Mutated line:
+                 assert(olas.inflationRemainder() <= olas.tenYearSupplyCap() + olas.totalSupply());
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 47
+    Result: Lived
+    Original line:
+                     numYears -= 9; // Adjust for the first 10 years
+
+    Mutated line:
+                     numYears += 9; // Adjust for the first 10 years
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 49
+    Result: Lived
+    Original line:
+                         currentSupplyCap += (currentSupplyCap * olas.maxMintCapFraction()) / 100;
+
+    Mutated line:
+                         currentSupplyCap -= (currentSupplyCap * olas.maxMintCapFraction()) / 100;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 16
+    Result: Lived
+    Original line:
+                 assert(olas.totalSupply() <= olas.tenYearSupplyCap());
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 21
+    Result: Lived
+    Original line:
+                 assert(olas.owner() != address(0) && olas.minter() != address(0));
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 26
+    Result: Lived
+    Original line:
+                 assert(olas.inflationRemainder() >= 0);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 31
+    Result: Lived
+    Original line:
+                 assert(olas.totalSupply() >= 0);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 36
+    Result: Lived
+    Original line:
+                 assert(olas.allowance(_owner, spender) <= olas.balanceOf(_owner));
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 54
+    Result: Lived
+    Original line:
+                 assert(olas.totalSupply() <= currentSupplyCap);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 65
+    Result: Lived
+    Original line:
+                     assert(true);
+
+    Mutated line:
+                     
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 71
+    Result: Lived
+    Original line:
+                 assert(olas.owner() == newOwner);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaOLASAssert.sol
+    Line nr: 79
+    Result: Killed
+    Original line:
+                 assert(olas.inflationRemainder() <= olas.tenYearSupplyCap() - olas.totalSupply());
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 17
+    Result: Lived
+    Original line:
+                 for (uint i = 0; i < accounts.length; i++) {
+
+    Mutated line:
+                 for (uint i = 0; i <= accounts.length; i++) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 29
+    Result: Lived
+    Original line:
+                     assert(endTime <= block.timestamp + veOlas.MAXTIME());
+
+    Mutated line:
+                     assert(endTime < block.timestamp + veOlas.MAXTIME());
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 27
+    Result: Lived
+    Original line:
+                 for (uint i = 0; i < accounts.length; i++) {
+
+    Mutated line:
+                 for (uint i = 0; i <= accounts.length; i++) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 37
+    Result: Lived
+    Original line:
+                 for (uint i = 0; i < accounts.length; i++) {
+
+    Mutated line:
+                 for (uint i = 0; i <= accounts.length; i++) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 41
+    Result: Killed
+    Original line:
+                 assert(computedTotal == veOlas.totalSupply());
+
+    Mutated line:
+                 assert(computedTotal != veOlas.totalSupply());
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 59
+    Result: Lived
+    Original line:
+                     assert(actualVotingPower == expectedVotingPower);
+
+    Mutated line:
+                     assert(actualVotingPower != expectedVotingPower);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 47
+    Result: Lived
+    Original line:
+                 for (uint i = 0; i < accounts.length; i++) {
+
+    Mutated line:
+                 for (uint i = 0; i <= accounts.length; i++) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 66
+    Result: Lived
+    Original line:
+                 if (currentTime > endTime) {
+
+    Mutated line:
+                 if (currentTime >= endTime) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 70
+    Result: Lived
+    Original line:
+                     uint256 timeLeft = endTime > currentTime ? endTime - currentTime : 0;
+
+    Mutated line:
+                     uint256 timeLeft = endTime >= currentTime ? endTime - currentTime : 0;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 119
+    Result: Lived
+    Original line:
+                 assert(newEndTime == initialEndTime);
+
+    Mutated line:
+                 assert(newEndTime != initialEndTime);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 136
+    Result: Lived
+    Original line:
+                 assert(lockedAmount == amount);
+
+    Mutated line:
+                 assert(lockedAmount != amount);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 138
+    Result: Lived
+    Original line:
+                 assert(lockedEndTime == ((block.timestamp + unlockTime) / veOlas.WEEK()) * veOlas.WEEK());
+
+    Mutated line:
+                 assert(lockedEndTime != ((block.timestamp + unlockTime) / veOlas.WEEK()) * veOlas.WEEK());
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 193
+    Result: Lived
+    Original line:
+                 assert(newAmount == initialAmount + increaseValue);
+
+    Mutated line:
+                 assert(newAmount != initialAmount + increaseValue);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 203
+    Result: Lived
+    Original line:
+                 for (uint i = 0; i < generatedAccounts.length; i++) {
+
+    Mutated line:
+                 for (uint i = 0; i <= generatedAccounts.length; i++) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 19
+    Result: Killed
+    Original line:
+                     assert(amount >= 0);
+
+    Mutated line:
+                     assert(amount < 0);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 17
+    Result: Lived
+    Original line:
+                 for (uint i = 0; i < accounts.length; i++) {
+
+    Mutated line:
+                 for (uint i = 0; i >= accounts.length; i++) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 29
+    Result: Lived
+    Original line:
+                     assert(endTime <= block.timestamp + veOlas.MAXTIME());
+
+    Mutated line:
+                     assert(endTime > block.timestamp + veOlas.MAXTIME());
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 27
+    Result: Lived
+    Original line:
+                 for (uint i = 0; i < accounts.length; i++) {
+
+    Mutated line:
+                 for (uint i = 0; i >= accounts.length; i++) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 37
+    Result: Killed
+    Original line:
+                 for (uint i = 0; i < accounts.length; i++) {
+
+    Mutated line:
+                 for (uint i = 0; i >= accounts.length; i++) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 41
+    Result: Lived
+    Original line:
+                 assert(computedTotal == veOlas.totalSupply());
+
+    Mutated line:
+                 assert(computedTotal != veOlas.totalSupply());
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 59
+    Result: Lived
+    Original line:
+                     assert(actualVotingPower == expectedVotingPower);
+
+    Mutated line:
+                     assert(actualVotingPower != expectedVotingPower);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 47
+    Result: Lived
+    Original line:
+                 for (uint i = 0; i < accounts.length; i++) {
+
+    Mutated line:
+                 for (uint i = 0; i >= accounts.length; i++) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 66
+    Result: Lived
+    Original line:
+                 if (currentTime > endTime) {
+
+    Mutated line:
+                 if (currentTime <= endTime) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 70
+    Result: Lived
+    Original line:
+                     uint256 timeLeft = endTime > currentTime ? endTime - currentTime : 0;
+
+    Mutated line:
+                     uint256 timeLeft = endTime <= currentTime ? endTime - currentTime : 0;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 89
+    Result: Lived
+    Original line:
+                 assert(newAmount >= 0);
+
+    Mutated line:
+                 assert(newAmount < 0);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 104
+    Result: Lived
+    Original line:
+                 assert(newAmount >= initialAmount);
+
+    Mutated line:
+                 assert(newAmount < initialAmount);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 119
+    Result: Lived
+    Original line:
+                 assert(newEndTime == initialEndTime);
+
+    Mutated line:
+                 assert(newEndTime != initialEndTime);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 136
+    Result: Lived
+    Original line:
+                 assert(lockedAmount == amount);
+
+    Mutated line:
+                 assert(lockedAmount != amount);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 138
+    Result: Lived
+    Original line:
+                 assert(lockedEndTime == ((block.timestamp + unlockTime) / veOlas.WEEK()) * veOlas.WEEK());
+
+    Mutated line:
+                 assert(lockedEndTime != ((block.timestamp + unlockTime) / veOlas.WEEK()) * veOlas.WEEK());
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 193
+    Result: Lived
+    Original line:
+                 assert(newAmount == initialAmount + increaseValue);
+
+    Mutated line:
+                 assert(newAmount != initialAmount + increaseValue);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 203
+    Result: Lived
+    Original line:
+                 for (uint i = 0; i < generatedAccounts.length; i++) {
+
+    Mutated line:
+                 for (uint i = 0; i >= generatedAccounts.length; i++) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 29
+    Result: Lived
+    Original line:
+                     assert(endTime <= block.timestamp + veOlas.MAXTIME());
+
+    Mutated line:
+                     assert(endTime <= block.timestamp - veOlas.MAXTIME());
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 70
+    Result: Lived
+    Original line:
+                     uint256 timeLeft = endTime > currentTime ? endTime - currentTime : 0;
+
+    Mutated line:
+                     uint256 timeLeft = endTime > currentTime ? endTime + currentTime : 0;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 71
+    Result: Lived
+    Original line:
+                     return amount * timeLeft / veOlas.MAXTIME();
+
+    Mutated line:
+                     return amount * timeLeft * veOlas.MAXTIME();
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 71
+    Result: Killed
+    Original line:
+                     return amount * timeLeft / veOlas.MAXTIME();
+
+    Mutated line:
+                     return amount / timeLeft / veOlas.MAXTIME();
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 138
+    Result: Lived
+    Original line:
+                 assert(lockedEndTime == ((block.timestamp + unlockTime) / veOlas.WEEK()) * veOlas.WEEK());
+
+    Mutated line:
+                 assert(lockedEndTime == ((block.timestamp + unlockTime) / veOlas.WEEK()) / veOlas.WEEK());
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 138
+    Result: Lived
+    Original line:
+                 assert(lockedEndTime == ((block.timestamp + unlockTime) / veOlas.WEEK()) * veOlas.WEEK());
+
+    Mutated line:
+                 assert(lockedEndTime == ((block.timestamp + unlockTime) * veOlas.WEEK()) * veOlas.WEEK());
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 138
+    Result: Lived
+    Original line:
+                 assert(lockedEndTime == ((block.timestamp + unlockTime) / veOlas.WEEK()) * veOlas.WEEK());
+
+    Mutated line:
+                 assert(lockedEndTime == ((block.timestamp - unlockTime) / veOlas.WEEK()) * veOlas.WEEK());
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 167
+    Result: Lived
+    Original line:
+                 uint256 largeAmount = type(uint96).max + 1;  // An amount larger than what's allowed
+
+    Mutated line:
+                 uint256 largeAmount = type(uint96).max - 1;  // An amount larger than what's allowed
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 193
+    Result: Killed
+    Original line:
+                 assert(newAmount == initialAmount + increaseValue);
+
+    Mutated line:
+                 assert(newAmount == initialAmount - increaseValue);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 39
+    Result: Killed
+    Original line:
+                     computedTotal += amount;
+
+    Mutated line:
+                     computedTotal -= amount;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 19
+    Result: Lived
+    Original line:
+                     assert(amount >= 0);
+
+    Mutated line:
+                     
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 29
+    Result: Lived
+    Original line:
+                     assert(endTime <= block.timestamp + veOlas.MAXTIME());
+
+    Mutated line:
+                     
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 41
+    Result: Lived
+    Original line:
+                 assert(computedTotal == veOlas.totalSupply());
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 59
+    Result: Killed
+    Original line:
+                     assert(actualVotingPower == expectedVotingPower);
+
+    Mutated line:
+                     
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 89
+    Result: Lived
+    Original line:
+                 assert(newAmount >= 0);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 104
+    Result: Lived
+    Original line:
+                 assert(newAmount >= initialAmount);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 119
+    Result: Killed
+    Original line:
+                 assert(newEndTime == initialEndTime);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 136
+    Result: Killed
+    Original line:
+                 assert(lockedAmount == amount);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 138
+    Result: Lived
+    Original line:
+                 assert(lockedEndTime == ((block.timestamp + unlockTime) / veOlas.WEEK()) * veOlas.WEEK());
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 144
+    Result: Lived
+    Original line:
+                     assert(false);  // Should not reach here
+
+    Mutated line:
+                       // Should not reach here
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 147
+    Result: Lived
+    Original line:
+                     assert(true);
+
+    Mutated line:
+                     
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 157
+    Result: Lived
+    Original line:
+                     assert(false);  // Should not reach here if lock is already present
+
+    Mutated line:
+                       // Should not reach here if lock is already present
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 160
+    Result: Lived
+    Original line:
+                     assert(true);
+
+    Mutated line:
+                     
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 167
+    Result: Error
+    Original line:
+                 uint256 largeAmount = type(uint96).max + 1;  // An amount larger than what's allowed
+
+    Mutated line:
+                 uint256 largeAmount = max + 1;  // An amount larger than what's allowed
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 170
+    Result: Lived
+    Original line:
+                     assert(false);  // Expecting this to revert due to overflow
+
+    Mutated line:
+                       // Expecting this to revert due to overflow
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 173
+    Result: Lived
+    Original line:
+                     assert(true);
+
+    Mutated line:
+                     
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/Echidna/EchidnaVeOLASAssert.sol
+    Line nr: 193
+    Result: Lived
+    Original line:
+                 assert(newAmount == initialAmount + increaseValue);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 49
+    Result: Killed
+    Original line:
+                 if (newOwner == address(0)) {
+
+    Mutated line:
+                 if (newOwner != address(0)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 64
+    Result: Killed
+    Original line:
+                 if (newMinter == address(0)) {
+
+    Mutated line:
+                 if (newMinter != address(0)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 94
+    Result: Lived
+    Original line:
+                 return (amount <= remainder);
+
+    Mutated line:
+                 return (amount < remainder);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 106
+    Result: Lived
+    Original line:
+                 if (numYears > 9) {
+
+    Mutated line:
+                 if (numYears >= 9) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 109
+    Result: Lived
+    Original line:
+                     for (uint256 i = 0; i < numYears; ++i) {
+
+    Mutated line:
+                     for (uint256 i = 0; i <= numYears; ++i) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 45
+    Result: Killed
+    Original line:
+                 if (msg.sender != owner) {
+
+    Mutated line:
+                 if (msg.sender == owner) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 49
+    Result: Killed
+    Original line:
+                 if (newOwner == address(0)) {
+
+    Mutated line:
+                 if (newOwner != address(0)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 60
+    Result: Killed
+    Original line:
+                 if (msg.sender != owner) {
+
+    Mutated line:
+                 if (msg.sender == owner) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 64
+    Result: Killed
+    Original line:
+                 if (newMinter == address(0)) {
+
+    Mutated line:
+                 if (newMinter != address(0)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 78
+    Result: Killed
+    Original line:
+                 if (msg.sender != minter) {
+
+    Mutated line:
+                 if (msg.sender == minter) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 94
+    Result: Killed
+    Original line:
+                 return (amount <= remainder);
+
+    Mutated line:
+                 return (amount > remainder);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 106
+    Result: Killed
+    Original line:
+                 if (numYears > 9) {
+
+    Mutated line:
+                 if (numYears <= 9) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 109
+    Result: Lived
+    Original line:
+                     for (uint256 i = 0; i < numYears; ++i) {
+
+    Mutated line:
+                     for (uint256 i = 0; i >= numYears; ++i) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 132
+    Result: Lived
+    Original line:
+                 if (spenderAllowance != type(uint256).max) {
+
+    Mutated line:
+                 if (spenderAllowance == type(uint256).max) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 23
+    Result: Error
+    Original line:
+             uint256 public constant oneYear = 1 days * 365;
+
+    Mutated line:
+             uint256 public constant oneYear = 1 days / 365;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 102
+    Result: Lived
+    Original line:
+                 uint256 numYears = (block.timestamp - timeLaunch) / oneYear;
+
+    Mutated line:
+                 uint256 numYears = (block.timestamp - timeLaunch) * oneYear;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 102
+    Result: Lived
+    Original line:
+                 uint256 numYears = (block.timestamp - timeLaunch) / oneYear;
+
+    Mutated line:
+                 uint256 numYears = (block.timestamp + timeLaunch) / oneYear;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 110
+    Result: Killed
+    Original line:
+                         supplyCap += (supplyCap * maxMintCapFraction) / 100;
+
+    Mutated line:
+                         supplyCap += (supplyCap * maxMintCapFraction) * 100;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 110
+    Result: Lived
+    Original line:
+                         supplyCap += (supplyCap * maxMintCapFraction) / 100;
+
+    Mutated line:
+                         supplyCap += (supplyCap / maxMintCapFraction) / 100;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 114
+    Result: Lived
+    Original line:
+                 remainder = supplyCap - _totalSupply;
+
+    Mutated line:
+                 remainder = supplyCap + _totalSupply;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 108
+    Result: Lived
+    Original line:
+                     numYears -= 9;
+
+    Mutated line:
+                     numYears += 9;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 110
+    Result: Lived
+    Original line:
+                         supplyCap += (supplyCap * maxMintCapFraction) / 100;
+
+    Mutated line:
+                         supplyCap -= (supplyCap * maxMintCapFraction) / 100;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 133
+    Result: Lived
+    Original line:
+                     spenderAllowance -= amount;
+
+    Mutated line:
+                     spenderAllowance += amount;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 149
+    Result: Lived
+    Original line:
+                 spenderAllowance += amount;
+
+    Mutated line:
+                 spenderAllowance -= amount;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 84
+    Result: Killed
+    Original line:
+                     _mint(account, amount);
+
+    Mutated line:
+                     
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 120
+    Result: Lived
+    Original line:
+                 _burn(msg.sender, amount);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 132
+    Result: Error
+    Original line:
+                 if (spenderAllowance != type(uint256).max) {
+
+    Mutated line:
+                 if (spenderAllowance != max) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/OLAS.sol
+    Line nr: 36
+    Result: Error
+    Original line:
+             constructor() ERC20("Autonolas", "OLAS", 18) {
+
+    Mutated line:
+             constructor()  {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 147
+    Result: Lived
+    Original line:
+                 if (lastPointNumber > 0) {
+
+    Mutated line:
+                 if (lastPointNumber >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 188
+    Result: Lived
+    Original line:
+                     if (oldLocked.endTime > block.timestamp && oldLocked.amount > 0) {
+
+    Mutated line:
+                     if (oldLocked.endTime >= block.timestamp && oldLocked.amount > 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 188
+    Result: Lived
+    Original line:
+                     if (oldLocked.endTime > block.timestamp && oldLocked.amount > 0) {
+
+    Mutated line:
+                     if (oldLocked.endTime > block.timestamp && oldLocked.amount >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 192
+    Result: Lived
+    Original line:
+                     if (newLocked.endTime > block.timestamp && newLocked.amount > 0) {
+
+    Mutated line:
+                     if (newLocked.endTime >= block.timestamp && newLocked.amount > 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 192
+    Result: Lived
+    Original line:
+                     if (newLocked.endTime > block.timestamp && newLocked.amount > 0) {
+
+    Mutated line:
+                     if (newLocked.endTime > block.timestamp && newLocked.amount >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 201
+    Result: Lived
+    Original line:
+                     if (newLocked.endTime > 0) {
+
+    Mutated line:
+                     if (newLocked.endTime >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 202
+    Result: Lived
+    Original line:
+                         if (newLocked.endTime == oldLocked.endTime) {
+
+    Mutated line:
+                         if (newLocked.endTime != oldLocked.endTime) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 211
+    Result: Lived
+    Original line:
+                 if (curNumPoint > 0) {
+
+    Mutated line:
+                 if (curNumPoint >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 222
+    Result: Killed
+    Original line:
+                 if (block.timestamp > lastPoint.ts) {
+
+    Mutated line:
+                 if (block.timestamp >= lastPoint.ts) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 240
+    Result: Lived
+    Original line:
+                         if (tStep > block.timestamp) {
+
+    Mutated line:
+                         if (tStep >= block.timestamp) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 247
+    Result: Lived
+    Original line:
+                         if (lastPoint.bias < 0) {
+
+    Mutated line:
+                         if (lastPoint.bias <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 251
+    Result: Killed
+    Original line:
+                         if (lastPoint.slope < 0) {
+
+    Mutated line:
+                         if (lastPoint.slope <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 265
+    Result: Killed
+    Original line:
+                         if (tStep == block.timestamp) {
+
+    Mutated line:
+                         if (tStep != block.timestamp) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 232
+    Result: Lived
+    Original line:
+                     for (uint256 i = 0; i < 255; ++i) {
+
+    Mutated line:
+                     for (uint256 i = 0; i <= 255; ++i) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 282
+    Result: Lived
+    Original line:
+                     if (lastPoint.slope < 0) {
+
+    Mutated line:
+                     if (lastPoint.slope <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 285
+    Result: Lived
+    Original line:
+                     if (lastPoint.bias < 0) {
+
+    Mutated line:
+                     if (lastPoint.bias <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 297
+    Result: Lived
+    Original line:
+                     if (oldLocked.endTime > block.timestamp) {
+
+    Mutated line:
+                     if (oldLocked.endTime >= block.timestamp) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 300
+    Result: Lived
+    Original line:
+                         if (newLocked.endTime == oldLocked.endTime) {
+
+    Mutated line:
+                         if (newLocked.endTime != oldLocked.endTime) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 306
+    Result: Lived
+    Original line:
+                     if (newLocked.endTime > block.timestamp && newLocked.endTime > oldLocked.endTime) {
+
+    Mutated line:
+                     if (newLocked.endTime >= block.timestamp && newLocked.endTime > oldLocked.endTime) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 306
+    Result: Lived
+    Original line:
+                     if (newLocked.endTime > block.timestamp && newLocked.endTime > oldLocked.endTime) {
+
+    Mutated line:
+                     if (newLocked.endTime > block.timestamp && newLocked.endTime >= oldLocked.endTime) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 352
+    Result: Lived
+    Original line:
+                 if (unlockTime > 0) {
+
+    Mutated line:
+                 if (unlockTime >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 362
+    Result: Lived
+    Original line:
+                 if (amount > 0) {
+
+    Mutated line:
+                 if (amount >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 379
+    Result: Killed
+    Original line:
+                 if (amount == 0) {
+
+    Mutated line:
+                 if (amount != 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 383
+    Result: Killed
+    Original line:
+                 if (lockedBalance.amount == 0) {
+
+    Mutated line:
+                 if (lockedBalance.amount != 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 387
+    Result: Lived
+    Original line:
+                 if (lockedBalance.endTime < (block.timestamp + 1)) {
+
+    Mutated line:
+                 if (lockedBalance.endTime <= (block.timestamp + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 392
+    Result: Lived
+    Original line:
+                 if (amount > type(uint96).max) {
+
+    Mutated line:
+                 if (amount >= type(uint96).max) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 413
+    Result: Lived
+    Original line:
+                 if (account == address(0)) {
+
+    Mutated line:
+                 if (account != address(0)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 427
+    Result: Killed
+    Original line:
+                 if (amount == 0) {
+
+    Mutated line:
+                 if (amount != 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 437
+    Result: Killed
+    Original line:
+                 if (lockedBalance.amount > 0) {
+
+    Mutated line:
+                 if (lockedBalance.amount >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 441
+    Result: Lived
+    Original line:
+                 if (unlockTime < (block.timestamp + 1)) {
+
+    Mutated line:
+                 if (unlockTime <= (block.timestamp + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 445
+    Result: Lived
+    Original line:
+                 if (unlockTime > block.timestamp + MAXTIME) {
+
+    Mutated line:
+                 if (unlockTime >= block.timestamp + MAXTIME) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 449
+    Result: Lived
+    Original line:
+                 if (amount > type(uint96).max) {
+
+    Mutated line:
+                 if (amount >= type(uint96).max) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 461
+    Result: Killed
+    Original line:
+                 if (amount == 0) {
+
+    Mutated line:
+                 if (amount != 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 465
+    Result: Killed
+    Original line:
+                 if (lockedBalance.amount == 0) {
+
+    Mutated line:
+                 if (lockedBalance.amount != 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 469
+    Result: Lived
+    Original line:
+                 if (lockedBalance.endTime < (block.timestamp + 1)) {
+
+    Mutated line:
+                 if (lockedBalance.endTime <= (block.timestamp + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 474
+    Result: Lived
+    Original line:
+                 if (amount > type(uint96).max) {
+
+    Mutated line:
+                 if (amount >= type(uint96).max) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 490
+    Result: Lived
+    Original line:
+                 if (lockedBalance.amount == 0) {
+
+    Mutated line:
+                 if (lockedBalance.amount != 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 494
+    Result: Lived
+    Original line:
+                 if (lockedBalance.endTime < (block.timestamp + 1)) {
+
+    Mutated line:
+                 if (lockedBalance.endTime <= (block.timestamp + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 498
+    Result: Lived
+    Original line:
+                 if (unlockTime < (lockedBalance.endTime + 1)) {
+
+    Mutated line:
+                 if (unlockTime <= (lockedBalance.endTime + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 502
+    Result: Lived
+    Original line:
+                 if (unlockTime > block.timestamp + MAXTIME) {
+
+    Mutated line:
+                 if (unlockTime >= block.timestamp + MAXTIME) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 512
+    Result: Lived
+    Original line:
+                 if (lockedBalance.endTime > block.timestamp) {
+
+    Mutated line:
+                 if (lockedBalance.endTime >= block.timestamp) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 547
+    Result: Killed
+    Original line:
+                 if (account == address(0)) {
+
+    Mutated line:
+                 if (account != address(0)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 551
+    Result: Killed
+    Original line:
+                     if (maxPointNumber == 0) {
+
+    Mutated line:
+                     if (maxPointNumber != 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 562
+    Result: Killed
+    Original line:
+                     if ((minPointNumber + 1) > maxPointNumber) {
+
+    Mutated line:
+                     if ((minPointNumber + 1) >= maxPointNumber) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 568
+    Result: Killed
+    Original line:
+                     if (account == address(0)) {
+
+    Mutated line:
+                     if (account != address(0)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 574
+    Result: Lived
+    Original line:
+                     if (point.blockNumber < (blockNumber + 1)) {
+
+    Mutated line:
+                     if (point.blockNumber <= (blockNumber + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 561
+    Result: Lived
+    Original line:
+                 for (uint256 i = 0; i < 128; ++i) {
+
+    Mutated line:
+                 for (uint256 i = 0; i <= 128; ++i) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 582
+    Result: Killed
+    Original line:
+                 if (account == address(0)) {
+
+    Mutated line:
+                 if (account != address(0)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 595
+    Result: Lived
+    Original line:
+                 if (pointNumber > 0) {
+
+    Mutated line:
+                 if (pointNumber >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 598
+    Result: Lived
+    Original line:
+                     if (uPoint.bias > 0) {
+
+    Mutated line:
+                     if (uPoint.bias >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 626
+    Result: Lived
+    Original line:
+                 if (uPoint.blockNumber < (blockNumber + 1)) {
+
+    Mutated line:
+                 if (uPoint.blockNumber <= (blockNumber + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 645
+    Result: Lived
+    Original line:
+                 if (blockNumber > block.number) {
+
+    Mutated line:
+                 if (blockNumber >= block.number) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 654
+    Result: Lived
+    Original line:
+                 if (minPointNumber < totalNumPoints) {
+
+    Mutated line:
+                 if (minPointNumber <= totalNumPoints) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 663
+    Result: Lived
+    Original line:
+                 if (dBlock > 0) {
+
+    Mutated line:
+                 if (dBlock >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 681
+    Result: Lived
+    Original line:
+                 if (uPoint.bias > 0) {
+
+    Mutated line:
+                 if (uPoint.bias >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 699
+    Result: Lived
+    Original line:
+                     if (tStep > ts) {
+
+    Mutated line:
+                     if (tStep >= ts) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 705
+    Result: Lived
+    Original line:
+                     if (tStep == ts) {
+
+    Mutated line:
+                     if (tStep != ts) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 693
+    Result: Lived
+    Original line:
+                 for (uint256 i = 0; i < 255; ++i) {
+
+    Mutated line:
+                 for (uint256 i = 0; i <= 255; ++i) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 712
+    Result: Lived
+    Original line:
+                 if (lastPoint.bias > 0) {
+
+    Mutated line:
+                 if (lastPoint.bias >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 730
+    Result: Lived
+    Original line:
+                 if (sPoint.blockNumber < (blockNumber + 1)) {
+
+    Mutated line:
+                 if (sPoint.blockNumber <= (blockNumber + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 762
+    Result: Lived
+    Original line:
+                 return interfaceId == type(IERC20).interfaceId || interfaceId == type(IVotes).interfaceId ||
+
+    Mutated line:
+                 return interfaceId != type(IERC20).interfaceId || interfaceId == type(IVotes).interfaceId ||
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 762
+    Result: Lived
+    Original line:
+                 return interfaceId == type(IERC20).interfaceId || interfaceId == type(IVotes).interfaceId ||
+
+    Mutated line:
+                 return interfaceId == type(IERC20).interfaceId || interfaceId != type(IVotes).interfaceId ||
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 763
+    Result: Lived
+    Original line:
+                     interfaceId == type(IERC165).interfaceId;
+
+    Mutated line:
+                     interfaceId != type(IERC165).interfaceId;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 147
+    Result: Lived
+    Original line:
+                 if (lastPointNumber > 0) {
+
+    Mutated line:
+                 if (lastPointNumber <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 185
+    Result: Lived
+    Original line:
+                 if (account != address(0)) {
+
+    Mutated line:
+                 if (account == address(0)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 188
+    Result: Lived
+    Original line:
+                     if (oldLocked.endTime > block.timestamp && oldLocked.amount > 0) {
+
+    Mutated line:
+                     if (oldLocked.endTime <= block.timestamp && oldLocked.amount > 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 188
+    Result: Lived
+    Original line:
+                     if (oldLocked.endTime > block.timestamp && oldLocked.amount > 0) {
+
+    Mutated line:
+                     if (oldLocked.endTime > block.timestamp && oldLocked.amount <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 192
+    Result: Lived
+    Original line:
+                     if (newLocked.endTime > block.timestamp && newLocked.amount > 0) {
+
+    Mutated line:
+                     if (newLocked.endTime <= block.timestamp && newLocked.amount > 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 192
+    Result: Killed
+    Original line:
+                     if (newLocked.endTime > block.timestamp && newLocked.amount > 0) {
+
+    Mutated line:
+                     if (newLocked.endTime > block.timestamp && newLocked.amount <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 201
+    Result: Lived
+    Original line:
+                     if (newLocked.endTime > 0) {
+
+    Mutated line:
+                     if (newLocked.endTime <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 202
+    Result: Lived
+    Original line:
+                         if (newLocked.endTime == oldLocked.endTime) {
+
+    Mutated line:
+                         if (newLocked.endTime != oldLocked.endTime) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 211
+    Result: Lived
+    Original line:
+                 if (curNumPoint > 0) {
+
+    Mutated line:
+                 if (curNumPoint <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 222
+    Result: Killed
+    Original line:
+                 if (block.timestamp > lastPoint.ts) {
+
+    Mutated line:
+                 if (block.timestamp <= lastPoint.ts) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 240
+    Result: Killed
+    Original line:
+                         if (tStep > block.timestamp) {
+
+    Mutated line:
+                         if (tStep <= block.timestamp) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 247
+    Result: Killed
+    Original line:
+                         if (lastPoint.bias < 0) {
+
+    Mutated line:
+                         if (lastPoint.bias >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 251
+    Result: Lived
+    Original line:
+                         if (lastPoint.slope < 0) {
+
+    Mutated line:
+                         if (lastPoint.slope >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 265
+    Result: Killed
+    Original line:
+                         if (tStep == block.timestamp) {
+
+    Mutated line:
+                         if (tStep != block.timestamp) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 232
+    Result: Killed
+    Original line:
+                     for (uint256 i = 0; i < 255; ++i) {
+
+    Mutated line:
+                     for (uint256 i = 0; i >= 255; ++i) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 278
+    Result: Lived
+    Original line:
+                 if (account != address(0)) {
+
+    Mutated line:
+                 if (account == address(0)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 282
+    Result: Lived
+    Original line:
+                     if (lastPoint.slope < 0) {
+
+    Mutated line:
+                     if (lastPoint.slope >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 285
+    Result: Lived
+    Original line:
+                     if (lastPoint.bias < 0) {
+
+    Mutated line:
+                     if (lastPoint.bias >= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 293
+    Result: Killed
+    Original line:
+                 if (account != address(0)) {
+
+    Mutated line:
+                 if (account == address(0)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 297
+    Result: Lived
+    Original line:
+                     if (oldLocked.endTime > block.timestamp) {
+
+    Mutated line:
+                     if (oldLocked.endTime <= block.timestamp) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 300
+    Result: Lived
+    Original line:
+                         if (newLocked.endTime == oldLocked.endTime) {
+
+    Mutated line:
+                         if (newLocked.endTime != oldLocked.endTime) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 306
+    Result: Lived
+    Original line:
+                     if (newLocked.endTime > block.timestamp && newLocked.endTime > oldLocked.endTime) {
+
+    Mutated line:
+                     if (newLocked.endTime <= block.timestamp && newLocked.endTime > oldLocked.endTime) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 306
+    Result: Lived
+    Original line:
+                     if (newLocked.endTime > block.timestamp && newLocked.endTime > oldLocked.endTime) {
+
+    Mutated line:
+                     if (newLocked.endTime > block.timestamp && newLocked.endTime <= oldLocked.endTime) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 352
+    Result: Killed
+    Original line:
+                 if (unlockTime > 0) {
+
+    Mutated line:
+                 if (unlockTime <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 362
+    Result: Lived
+    Original line:
+                 if (amount > 0) {
+
+    Mutated line:
+                 if (amount <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 379
+    Result: Killed
+    Original line:
+                 if (amount == 0) {
+
+    Mutated line:
+                 if (amount != 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 383
+    Result: Killed
+    Original line:
+                 if (lockedBalance.amount == 0) {
+
+    Mutated line:
+                 if (lockedBalance.amount != 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 387
+    Result: Killed
+    Original line:
+                 if (lockedBalance.endTime < (block.timestamp + 1)) {
+
+    Mutated line:
+                 if (lockedBalance.endTime >= (block.timestamp + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 392
+    Result: Killed
+    Original line:
+                 if (amount > type(uint96).max) {
+
+    Mutated line:
+                 if (amount <= type(uint96).max) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 413
+    Result: Lived
+    Original line:
+                 if (account == address(0)) {
+
+    Mutated line:
+                 if (account != address(0)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 427
+    Result: Killed
+    Original line:
+                 if (amount == 0) {
+
+    Mutated line:
+                 if (amount != 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 437
+    Result: Killed
+    Original line:
+                 if (lockedBalance.amount > 0) {
+
+    Mutated line:
+                 if (lockedBalance.amount <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 441
+    Result: Killed
+    Original line:
+                 if (unlockTime < (block.timestamp + 1)) {
+
+    Mutated line:
+                 if (unlockTime >= (block.timestamp + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 445
+    Result: Killed
+    Original line:
+                 if (unlockTime > block.timestamp + MAXTIME) {
+
+    Mutated line:
+                 if (unlockTime <= block.timestamp + MAXTIME) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 449
+    Result: Killed
+    Original line:
+                 if (amount > type(uint96).max) {
+
+    Mutated line:
+                 if (amount <= type(uint96).max) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 461
+    Result: Killed
+    Original line:
+                 if (amount == 0) {
+
+    Mutated line:
+                 if (amount != 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 465
+    Result: Killed
+    Original line:
+                 if (lockedBalance.amount == 0) {
+
+    Mutated line:
+                 if (lockedBalance.amount != 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 469
+    Result: Killed
+    Original line:
+                 if (lockedBalance.endTime < (block.timestamp + 1)) {
+
+    Mutated line:
+                 if (lockedBalance.endTime >= (block.timestamp + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 474
+    Result: Killed
+    Original line:
+                 if (amount > type(uint96).max) {
+
+    Mutated line:
+                 if (amount <= type(uint96).max) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 490
+    Result: Lived
+    Original line:
+                 if (lockedBalance.amount == 0) {
+
+    Mutated line:
+                 if (lockedBalance.amount != 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 494
+    Result: Lived
+    Original line:
+                 if (lockedBalance.endTime < (block.timestamp + 1)) {
+
+    Mutated line:
+                 if (lockedBalance.endTime >= (block.timestamp + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 498
+    Result: Lived
+    Original line:
+                 if (unlockTime < (lockedBalance.endTime + 1)) {
+
+    Mutated line:
+                 if (unlockTime >= (lockedBalance.endTime + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 502
+    Result: Killed
+    Original line:
+                 if (unlockTime > block.timestamp + MAXTIME) {
+
+    Mutated line:
+                 if (unlockTime <= block.timestamp + MAXTIME) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 512
+    Result: Lived
+    Original line:
+                 if (lockedBalance.endTime > block.timestamp) {
+
+    Mutated line:
+                 if (lockedBalance.endTime <= block.timestamp) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 547
+    Result: Killed
+    Original line:
+                 if (account == address(0)) {
+
+    Mutated line:
+                 if (account != address(0)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 551
+    Result: Killed
+    Original line:
+                     if (maxPointNumber == 0) {
+
+    Mutated line:
+                     if (maxPointNumber != 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 562
+    Result: Killed
+    Original line:
+                     if ((minPointNumber + 1) > maxPointNumber) {
+
+    Mutated line:
+                     if ((minPointNumber + 1) <= maxPointNumber) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 568
+    Result: Killed
+    Original line:
+                     if (account == address(0)) {
+
+    Mutated line:
+                     if (account != address(0)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 574
+    Result: Killed
+    Original line:
+                     if (point.blockNumber < (blockNumber + 1)) {
+
+    Mutated line:
+                     if (point.blockNumber >= (blockNumber + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 561
+    Result: Killed
+    Original line:
+                 for (uint256 i = 0; i < 128; ++i) {
+
+    Mutated line:
+                 for (uint256 i = 0; i >= 128; ++i) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 582
+    Result: Killed
+    Original line:
+                 if (account == address(0)) {
+
+    Mutated line:
+                 if (account != address(0)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 595
+    Result: Lived
+    Original line:
+                 if (pointNumber > 0) {
+
+    Mutated line:
+                 if (pointNumber <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 598
+    Result: Lived
+    Original line:
+                     if (uPoint.bias > 0) {
+
+    Mutated line:
+                     if (uPoint.bias <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 626
+    Result: Killed
+    Original line:
+                 if (uPoint.blockNumber < (blockNumber + 1)) {
+
+    Mutated line:
+                 if (uPoint.blockNumber >= (blockNumber + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 645
+    Result: Lived
+    Original line:
+                 if (blockNumber > block.number) {
+
+    Mutated line:
+                 if (blockNumber <= block.number) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 654
+    Result: Lived
+    Original line:
+                 if (minPointNumber < totalNumPoints) {
+
+    Mutated line:
+                 if (minPointNumber >= totalNumPoints) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 663
+    Result: Killed
+    Original line:
+                 if (dBlock > 0) {
+
+    Mutated line:
+                 if (dBlock <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 681
+    Result: Lived
+    Original line:
+                 if (uPoint.bias > 0) {
+
+    Mutated line:
+                 if (uPoint.bias <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 699
+    Result: Lived
+    Original line:
+                     if (tStep > ts) {
+
+    Mutated line:
+                     if (tStep <= ts) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 705
+    Result: Lived
+    Original line:
+                     if (tStep == ts) {
+
+    Mutated line:
+                     if (tStep != ts) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 693
+    Result: Lived
+    Original line:
+                 for (uint256 i = 0; i < 255; ++i) {
+
+    Mutated line:
+                 for (uint256 i = 0; i >= 255; ++i) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 712
+    Result: Lived
+    Original line:
+                 if (lastPoint.bias > 0) {
+
+    Mutated line:
+                 if (lastPoint.bias <= 0) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 730
+    Result: Killed
+    Original line:
+                 if (sPoint.blockNumber < (blockNumber + 1)) {
+
+    Mutated line:
+                 if (sPoint.blockNumber >= (blockNumber + 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 762
+    Result: Killed
+    Original line:
+                 return interfaceId == type(IERC20).interfaceId || interfaceId == type(IVotes).interfaceId ||
+
+    Mutated line:
+                 return interfaceId != type(IERC20).interfaceId || interfaceId == type(IVotes).interfaceId ||
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 762
+    Result: Lived
+    Original line:
+                 return interfaceId == type(IERC20).interfaceId || interfaceId == type(IVotes).interfaceId ||
+
+    Mutated line:
+                 return interfaceId == type(IERC20).interfaceId || interfaceId != type(IVotes).interfaceId ||
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 763
+    Result: Lived
+    Original line:
+                     interfaceId == type(IERC165).interfaceId;
+
+    Mutated line:
+                     interfaceId != type(IERC165).interfaceId;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 101
+    Result: Error
+    Original line:
+             uint256 public constant MAXTIME = 4 * 365 * 86400;
+
+    Mutated line:
+             uint256 public constant MAXTIME = 4 * 365 / 86400;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 101
+    Result: Error
+    Original line:
+             uint256 public constant MAXTIME = 4 * 365 * 86400;
+
+    Mutated line:
+             uint256 public constant MAXTIME = 4 / 365 * 86400;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 103
+    Result: Error
+    Original line:
+             int128 internal constant IMAXTIME = 4 * 365 * 86400;
+
+    Mutated line:
+             int128 internal constant IMAXTIME = 4 * 365 / 86400;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 103
+    Result: Error
+    Original line:
+             int128 internal constant IMAXTIME = 4 * 365 * 86400;
+
+    Mutated line:
+             int128 internal constant IMAXTIME = 4 / 365 * 86400;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 148
+    Result: Lived
+    Original line:
+                     pv = mapUserPoints[account][lastPointNumber - 1];
+
+    Mutated line:
+                     pv = mapUserPoints[account][lastPointNumber + 1];
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 189
+    Result: Lived
+    Original line:
+                         uOld.slope = int128(oldLocked.amount) / IMAXTIME;
+
+    Mutated line:
+                         uOld.slope = int128(oldLocked.amount) * IMAXTIME;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 190
+    Result: Lived
+    Original line:
+                         uOld.bias = uOld.slope * int128(uint128(oldLocked.endTime - uint64(block.timestamp)));
+
+    Mutated line:
+                         uOld.bias = uOld.slope / int128(uint128(oldLocked.endTime - uint64(block.timestamp)));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 190
+    Result: Lived
+    Original line:
+                         uOld.bias = uOld.slope * int128(uint128(oldLocked.endTime - uint64(block.timestamp)));
+
+    Mutated line:
+                         uOld.bias = uOld.slope * int128(uint128(oldLocked.endTime + uint64(block.timestamp)));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 193
+    Result: Lived
+    Original line:
+                         uNew.slope = int128(newLocked.amount) / IMAXTIME;
+
+    Mutated line:
+                         uNew.slope = int128(newLocked.amount) * IMAXTIME;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 194
+    Result: Lived
+    Original line:
+                         uNew.bias = uNew.slope * int128(uint128(newLocked.endTime - uint64(block.timestamp)));
+
+    Mutated line:
+                         uNew.bias = uNew.slope / int128(uint128(newLocked.endTime - uint64(block.timestamp)));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 194
+    Result: Lived
+    Original line:
+                         uNew.bias = uNew.slope * int128(uint128(newLocked.endTime - uint64(block.timestamp)));
+
+    Mutated line:
+                         uNew.bias = uNew.slope * int128(uint128(newLocked.endTime + uint64(block.timestamp)));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 225
+    Result: Lived
+    Original line:
+                     block_slope = (1e18 * uint256(block.number - lastPoint.blockNumber)) / uint256(block.timestamp - lastPoint.ts);
+
+    Mutated line:
+                     block_slope = (1e18 * uint256(block.number - lastPoint.blockNumber)) * uint256(block.timestamp - lastPoint.ts);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 225
+    Result: Killed
+    Original line:
+                     block_slope = (1e18 * uint256(block.number - lastPoint.blockNumber)) / uint256(block.timestamp - lastPoint.ts);
+
+    Mutated line:
+                     block_slope = (1e18 / uint256(block.number - lastPoint.blockNumber)) / uint256(block.timestamp - lastPoint.ts);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 225
+    Result: Lived
+    Original line:
+                     block_slope = (1e18 * uint256(block.number - lastPoint.blockNumber)) / uint256(block.timestamp - lastPoint.ts);
+
+    Mutated line:
+                     block_slope = (1e18 * uint256(block.number + lastPoint.blockNumber)) / uint256(block.timestamp - lastPoint.ts);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 225
+    Result: Lived
+    Original line:
+                     block_slope = (1e18 * uint256(block.number - lastPoint.blockNumber)) / uint256(block.timestamp - lastPoint.ts);
+
+    Mutated line:
+                     block_slope = (1e18 * uint256(block.number - lastPoint.blockNumber)) / uint256(block.timestamp + lastPoint.ts);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 231
+    Result: Lived
+    Original line:
+                     uint64 tStep = (lastCheckpoint / WEEK) * WEEK;
+
+    Mutated line:
+                     uint64 tStep = (lastCheckpoint / WEEK) / WEEK;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 231
+    Result: Lived
+    Original line:
+                     uint64 tStep = (lastCheckpoint / WEEK) * WEEK;
+
+    Mutated line:
+                     uint64 tStep = (lastCheckpoint * WEEK) * WEEK;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 245
+    Result: Killed
+    Original line:
+                         lastPoint.bias -= lastPoint.slope * int128(int64(tStep - lastCheckpoint));
+
+    Mutated line:
+                         lastPoint.bias -= lastPoint.slope / int128(int64(tStep - lastCheckpoint));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 245
+    Result: Lived
+    Original line:
+                         lastPoint.bias -= lastPoint.slope * int128(int64(tStep - lastCheckpoint));
+
+    Mutated line:
+                         lastPoint.bias -= lastPoint.slope * int128(int64(tStep + lastCheckpoint));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 258
+    Result: Lived
+    Original line:
+                         lastPoint.blockNumber = initialPoint.blockNumber + uint64((block_slope * uint256(tStep - initialPoint.ts)) / 1e18);
+
+    Mutated line:
+                         lastPoint.blockNumber = initialPoint.blockNumber - uint64((block_slope * uint256(tStep - initialPoint.ts)) / 1e18);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 258
+    Result: Lived
+    Original line:
+                         lastPoint.blockNumber = initialPoint.blockNumber + uint64((block_slope * uint256(tStep - initialPoint.ts)) / 1e18);
+
+    Mutated line:
+                         lastPoint.blockNumber = initialPoint.blockNumber + uint64((block_slope * uint256(tStep - initialPoint.ts)) * 1e18);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 258
+    Result: Killed
+    Original line:
+                         lastPoint.blockNumber = initialPoint.blockNumber + uint64((block_slope * uint256(tStep - initialPoint.ts)) / 1e18);
+
+    Mutated line:
+                         lastPoint.blockNumber = initialPoint.blockNumber + uint64((block_slope / uint256(tStep - initialPoint.ts)) / 1e18);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 258
+    Result: Killed
+    Original line:
+                         lastPoint.blockNumber = initialPoint.blockNumber + uint64((block_slope * uint256(tStep - initialPoint.ts)) / 1e18);
+
+    Mutated line:
+                         lastPoint.blockNumber = initialPoint.blockNumber + uint64((block_slope * uint256(tStep + initialPoint.ts)) / 1e18);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 280
+    Result: Lived
+    Original line:
+                     lastPoint.slope += (uNew.slope - uOld.slope);
+
+    Mutated line:
+                     lastPoint.slope += (uNew.slope + uOld.slope);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 281
+    Result: Lived
+    Original line:
+                     lastPoint.bias += (uNew.bias - uOld.bias);
+
+    Mutated line:
+                     lastPoint.bias += (uNew.bias + uOld.bias);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 341
+    Result: Killed
+    Original line:
+                     supplyAfter = supplyBefore + amount;
+
+    Mutated line:
+                     supplyAfter = supplyBefore - amount;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 387
+    Result: Lived
+    Original line:
+                 if (lockedBalance.endTime < (block.timestamp + 1)) {
+
+    Mutated line:
+                 if (lockedBalance.endTime < (block.timestamp - 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 433
+    Result: Killed
+    Original line:
+                     unlockTime = ((block.timestamp + unlockTime) / WEEK) * WEEK;
+
+    Mutated line:
+                     unlockTime = ((block.timestamp + unlockTime) / WEEK) / WEEK;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 433
+    Result: Killed
+    Original line:
+                     unlockTime = ((block.timestamp + unlockTime) / WEEK) * WEEK;
+
+    Mutated line:
+                     unlockTime = ((block.timestamp + unlockTime) * WEEK) * WEEK;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 433
+    Result: Killed
+    Original line:
+                     unlockTime = ((block.timestamp + unlockTime) / WEEK) * WEEK;
+
+    Mutated line:
+                     unlockTime = ((block.timestamp - unlockTime) / WEEK) * WEEK;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 441
+    Result: Lived
+    Original line:
+                 if (unlockTime < (block.timestamp + 1)) {
+
+    Mutated line:
+                 if (unlockTime < (block.timestamp - 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 445
+    Result: Killed
+    Original line:
+                 if (unlockTime > block.timestamp + MAXTIME) {
+
+    Mutated line:
+                 if (unlockTime > block.timestamp - MAXTIME) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 446
+    Result: Lived
+    Original line:
+                     revert MaxUnlockTimeReached(account, block.timestamp + MAXTIME, unlockTime);
+
+    Mutated line:
+                     revert MaxUnlockTimeReached(account, block.timestamp - MAXTIME, unlockTime);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 469
+    Result: Killed
+    Original line:
+                 if (lockedBalance.endTime < (block.timestamp + 1)) {
+
+    Mutated line:
+                 if (lockedBalance.endTime < (block.timestamp - 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 487
+    Result: Lived
+    Original line:
+                     unlockTime = ((block.timestamp + unlockTime) / WEEK) * WEEK;
+
+    Mutated line:
+                     unlockTime = ((block.timestamp + unlockTime) / WEEK) / WEEK;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 487
+    Result: Lived
+    Original line:
+                     unlockTime = ((block.timestamp + unlockTime) / WEEK) * WEEK;
+
+    Mutated line:
+                     unlockTime = ((block.timestamp + unlockTime) * WEEK) * WEEK;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 487
+    Result: Lived
+    Original line:
+                     unlockTime = ((block.timestamp + unlockTime) / WEEK) * WEEK;
+
+    Mutated line:
+                     unlockTime = ((block.timestamp - unlockTime) / WEEK) * WEEK;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 494
+    Result: Lived
+    Original line:
+                 if (lockedBalance.endTime < (block.timestamp + 1)) {
+
+    Mutated line:
+                 if (lockedBalance.endTime < (block.timestamp - 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 498
+    Result: Lived
+    Original line:
+                 if (unlockTime < (lockedBalance.endTime + 1)) {
+
+    Mutated line:
+                 if (unlockTime < (lockedBalance.endTime - 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 502
+    Result: Lived
+    Original line:
+                 if (unlockTime > block.timestamp + MAXTIME) {
+
+    Mutated line:
+                 if (unlockTime > block.timestamp - MAXTIME) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 503
+    Result: Lived
+    Original line:
+                     revert MaxUnlockTimeReached(msg.sender, block.timestamp + MAXTIME, unlockTime);
+
+    Mutated line:
+                     revert MaxUnlockTimeReached(msg.sender, block.timestamp - MAXTIME, unlockTime);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 522
+    Result: Killed
+    Original line:
+                     supplyAfter = supplyBefore - amount;
+
+    Mutated line:
+                     supplyAfter = supplyBefore + amount;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 562
+    Result: Killed
+    Original line:
+                     if ((minPointNumber + 1) > maxPointNumber) {
+
+    Mutated line:
+                     if ((minPointNumber - 1) > maxPointNumber) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 565
+    Result: Killed
+    Original line:
+                     uint256 mid = (minPointNumber + maxPointNumber + 1) / 2;
+
+    Mutated line:
+                     uint256 mid = (minPointNumber + maxPointNumber + 1) * 2;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 565
+    Result: Killed
+    Original line:
+                     uint256 mid = (minPointNumber + maxPointNumber + 1) / 2;
+
+    Mutated line:
+                     uint256 mid = (minPointNumber + maxPointNumber - 1) / 2;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 565
+    Result: Killed
+    Original line:
+                     uint256 mid = (minPointNumber + maxPointNumber + 1) / 2;
+
+    Mutated line:
+                     uint256 mid = (minPointNumber - maxPointNumber + 1) / 2;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 574
+    Result: Killed
+    Original line:
+                     if (point.blockNumber < (blockNumber + 1)) {
+
+    Mutated line:
+                     if (point.blockNumber < (blockNumber - 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 577
+    Result: Lived
+    Original line:
+                         maxPointNumber = mid - 1;
+
+    Mutated line:
+                         maxPointNumber = mid + 1;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 596
+    Result: Killed
+    Original line:
+                     PointVoting memory uPoint = mapUserPoints[account][pointNumber - 1];
+
+    Mutated line:
+                     PointVoting memory uPoint = mapUserPoints[account][pointNumber + 1];
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 597
+    Result: Killed
+    Original line:
+                     uPoint.bias -= uPoint.slope * int128(int64(ts) - int64(uPoint.ts));
+
+    Mutated line:
+                     uPoint.bias -= uPoint.slope / int128(int64(ts) - int64(uPoint.ts));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 597
+    Result: Lived
+    Original line:
+                     uPoint.bias -= uPoint.slope * int128(int64(ts) - int64(uPoint.ts));
+
+    Mutated line:
+                     uPoint.bias -= uPoint.slope * int128(int64(ts) + int64(uPoint.ts));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 626
+    Result: Killed
+    Original line:
+                 if (uPoint.blockNumber < (blockNumber + 1)) {
+
+    Mutated line:
+                 if (uPoint.blockNumber < (blockNumber - 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 659
+    Result: Lived
+    Original line:
+                     dBlock = block.number - point.blockNumber;
+
+    Mutated line:
+                     dBlock = block.number + point.blockNumber;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 660
+    Result: Lived
+    Original line:
+                     dt = block.timestamp - point.ts;
+
+    Mutated line:
+                     dt = block.timestamp + point.ts;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 655
+    Result: Lived
+    Original line:
+                     PointVoting memory pointNext = mapSupplyPoints[minPointNumber + 1];
+
+    Mutated line:
+                     PointVoting memory pointNext = mapSupplyPoints[minPointNumber - 1];
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 656
+    Result: Lived
+    Original line:
+                     dBlock = pointNext.blockNumber - point.blockNumber;
+
+    Mutated line:
+                     dBlock = pointNext.blockNumber + point.blockNumber;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 657
+    Result: Lived
+    Original line:
+                     dt = pointNext.ts - point.ts;
+
+    Mutated line:
+                     dt = pointNext.ts + point.ts;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 664
+    Result: Lived
+    Original line:
+                     blockTime += (dt * (blockNumber - point.blockNumber)) / dBlock;
+
+    Mutated line:
+                     blockTime += (dt * (blockNumber - point.blockNumber)) * dBlock;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 664
+    Result: Lived
+    Original line:
+                     blockTime += (dt * (blockNumber - point.blockNumber)) / dBlock;
+
+    Mutated line:
+                     blockTime += (dt / (blockNumber - point.blockNumber)) / dBlock;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 664
+    Result: Lived
+    Original line:
+                     blockTime += (dt * (blockNumber - point.blockNumber)) / dBlock;
+
+    Mutated line:
+                     blockTime += (dt * (blockNumber + point.blockNumber)) / dBlock;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 680
+    Result: Lived
+    Original line:
+                 uPoint.bias -= uPoint.slope * int128(int64(uint64(blockTime)) - int64(uPoint.ts));
+
+    Mutated line:
+                 uPoint.bias -= uPoint.slope / int128(int64(uint64(blockTime)) - int64(uPoint.ts));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 680
+    Result: Lived
+    Original line:
+                 uPoint.bias -= uPoint.slope * int128(int64(uint64(blockTime)) - int64(uPoint.ts));
+
+    Mutated line:
+                 uPoint.bias -= uPoint.slope * int128(int64(uint64(blockTime)) + int64(uPoint.ts));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 692
+    Result: Lived
+    Original line:
+                 uint64 tStep = (lastPoint.ts / WEEK) * WEEK;
+
+    Mutated line:
+                 uint64 tStep = (lastPoint.ts / WEEK) / WEEK;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 692
+    Result: Killed
+    Original line:
+                 uint64 tStep = (lastPoint.ts / WEEK) * WEEK;
+
+    Mutated line:
+                 uint64 tStep = (lastPoint.ts * WEEK) * WEEK;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 704
+    Result: Killed
+    Original line:
+                     lastPoint.bias -= lastPoint.slope * int128(int64(tStep) - int64(lastPoint.ts));
+
+    Mutated line:
+                     lastPoint.bias -= lastPoint.slope / int128(int64(tStep) - int64(lastPoint.ts));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 704
+    Result: Killed
+    Original line:
+                     lastPoint.bias -= lastPoint.slope * int128(int64(tStep) - int64(lastPoint.ts));
+
+    Mutated line:
+                     lastPoint.bias -= lastPoint.slope * int128(int64(tStep) + int64(lastPoint.ts));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 730
+    Result: Killed
+    Original line:
+                 if (sPoint.blockNumber < (blockNumber + 1)) {
+
+    Mutated line:
+                 if (sPoint.blockNumber < (blockNumber - 1)) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 237
+    Result: Killed
+    Original line:
+                             tStep += WEEK;
+
+    Mutated line:
+                             tStep -= WEEK;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 245
+    Result: Lived
+    Original line:
+                         lastPoint.bias -= lastPoint.slope * int128(int64(tStep - lastCheckpoint));
+
+    Mutated line:
+                         lastPoint.bias += lastPoint.slope * int128(int64(tStep - lastCheckpoint));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 246
+    Result: Lived
+    Original line:
+                         lastPoint.slope += dSlope;
+
+    Mutated line:
+                         lastPoint.slope -= dSlope;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 263
+    Result: Killed
+    Original line:
+                             curNumPoint += 1;    
+
+    Mutated line:
+                             curNumPoint -= 1;    
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 280
+    Result: Lived
+    Original line:
+                     lastPoint.slope += (uNew.slope - uOld.slope);
+
+    Mutated line:
+                     lastPoint.slope -= (uNew.slope - uOld.slope);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 281
+    Result: Lived
+    Original line:
+                     lastPoint.bias += (uNew.bias - uOld.bias);
+
+    Mutated line:
+                     lastPoint.bias -= (uNew.bias - uOld.bias);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 299
+    Result: Lived
+    Original line:
+                         oldDSlope += uOld.slope;
+
+    Mutated line:
+                         oldDSlope -= uOld.slope;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 301
+    Result: Lived
+    Original line:
+                             oldDSlope -= uNew.slope; // It was a new deposit, not extension
+
+    Mutated line:
+                             oldDSlope += uNew.slope; // It was a new deposit, not extension
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 307
+    Result: Lived
+    Original line:
+                         newDSlope -= uNew.slope; // old slope disappeared at this point
+
+    Mutated line:
+                         newDSlope += uNew.slope; // old slope disappeared at this point
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 350
+    Result: Killed
+    Original line:
+                     lockedBalance.amount += uint128(amount);
+
+    Mutated line:
+                     lockedBalance.amount -= uint128(amount);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 556
+    Result: Killed
+    Original line:
+                         maxPointNumber -= 1;
+
+    Mutated line:
+                         maxPointNumber += 1;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 597
+    Result: Lived
+    Original line:
+                     uPoint.bias -= uPoint.slope * int128(int64(ts) - int64(uPoint.ts));
+
+    Mutated line:
+                     uPoint.bias += uPoint.slope * int128(int64(ts) - int64(uPoint.ts));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 664
+    Result: Lived
+    Original line:
+                     blockTime += (dt * (blockNumber - point.blockNumber)) / dBlock;
+
+    Mutated line:
+                     blockTime -= (dt * (blockNumber - point.blockNumber)) / dBlock;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 680
+    Result: Lived
+    Original line:
+                 uPoint.bias -= uPoint.slope * int128(int64(uint64(blockTime)) - int64(uPoint.ts));
+
+    Mutated line:
+                 uPoint.bias += uPoint.slope * int128(int64(uint64(blockTime)) - int64(uPoint.ts));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 696
+    Result: Lived
+    Original line:
+                         tStep += WEEK;
+
+    Mutated line:
+                         tStep -= WEEK;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 704
+    Result: Lived
+    Original line:
+                     lastPoint.bias -= lastPoint.slope * int128(int64(tStep) - int64(lastPoint.ts));
+
+    Mutated line:
+                     lastPoint.bias += lastPoint.slope * int128(int64(tStep) - int64(lastPoint.ts));
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 708
+    Result: Lived
+    Original line:
+                     lastPoint.slope += dSlope;
+
+    Mutated line:
+                     lastPoint.slope -= dSlope;
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 321
+    Result: Lived
+    Original line:
+                 _checkpoint(address(0), LockedBalance(0, 0), LockedBalance(0, 0), uint128(supply));
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 361
+    Result: Killed
+    Original line:
+                 _checkpoint(account, oldLocked, lockedBalance, uint128(supplyAfter));
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 392
+    Result: Error
+    Original line:
+                 if (amount > type(uint96).max) {
+
+    Mutated line:
+                 if (amount > max) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 393
+    Result: Error
+    Original line:
+                     revert Overflow(amount, type(uint96).max);
+
+    Mutated line:
+                     revert Overflow(amount, max);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 396
+    Result: Killed
+    Original line:
+                 _depositFor(account, amount, 0, lockedBalance, DepositType.DEPOSIT_FOR_TYPE);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 403
+    Result: Killed
+    Original line:
+                 _createLockFor(msg.sender, amount, unlockTime);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 417
+    Result: Lived
+    Original line:
+                 _createLockFor(account, amount, unlockTime);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 449
+    Result: Error
+    Original line:
+                 if (amount > type(uint96).max) {
+
+    Mutated line:
+                 if (amount > max) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 450
+    Result: Error
+    Original line:
+                     revert Overflow(amount, type(uint96).max);
+
+    Mutated line:
+                     revert Overflow(amount, max);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 453
+    Result: Killed
+    Original line:
+                 _depositFor(account, amount, unlockTime, lockedBalance, DepositType.CREATE_LOCK_TYPE);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 474
+    Result: Error
+    Original line:
+                 if (amount > type(uint96).max) {
+
+    Mutated line:
+                 if (amount > max) {
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 475
+    Result: Error
+    Original line:
+                     revert Overflow(amount, type(uint96).max);
+
+    Mutated line:
+                     revert Overflow(amount, max);
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 478
+    Result: Lived
+    Original line:
+                 _depositFor(msg.sender, amount, 0, lockedBalance, DepositType.INCREASE_LOCK_AMOUNT);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 506
+    Result: Lived
+    Original line:
+                 _depositFor(msg.sender, 0, unlockTime, lockedBalance, DepositType.INCREASE_UNLOCK_TIME);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 528
+    Result: Lived
+    Original line:
+                 _checkpoint(msg.sender, lockedBalance, LockedBalance(0, 0), uint128(supplyAfter));
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 762
+    Result: Lived
+    Original line:
+                 return interfaceId == type(IERC20).interfaceId || interfaceId == type(IVotes).interfaceId ||
+
+    Mutated line:
+                 return interfaceId == interfaceId || interfaceId == type(IVotes).interfaceId ||
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 762
+    Result: Lived
+    Original line:
+                 return interfaceId == type(IERC20).interfaceId || interfaceId == type(IVotes).interfaceId ||
+
+    Mutated line:
+                 return interfaceId == type(IERC20).interfaceId || interfaceId == interfaceId ||
+
+
+Mutation:
+    File: /Users/carlos/code/code4rena/testingProjects/Autonolas/src/veOLAS.sol
+    Line nr: 763
+    Result: Lived
+    Original line:
+                     interfaceId == type(IERC165).interfaceId;
+
+    Mutated line:
+                     interfaceId == interfaceId;
+
+
