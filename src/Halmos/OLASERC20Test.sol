@@ -17,31 +17,11 @@ abstract contract OLASERC20Test is SymTest, Test {
     function setUp() public virtual;
 
 
-//=================================================
-// BACKDOR
-//=================================================
+/////////////////////////////////////////////////////////////////////////
 
-    function _checkNoBackdoor(bytes4 selector, bytes memory args, address caller, address other) public virtual {
-        // consider two arbitrary distinct accounts
-        vm.assume(other != caller);
+// FUZZ TEST 
 
-        // record their current balances
-        uint256 oldBalanceOther = IERCOLAS(token).balanceOf(other);
-
-        uint256 oldAllowance = IERCOLAS(token).allowance(other, caller);
-
-        // consider an arbitrary function call to the token from the caller
-        vm.prank(caller);
-        (bool success,) = address(token).call(abi.encodePacked(selector, args));
-        vm.assume(success);
-
-        uint256 newBalanceOther = IERCOLAS(token).balanceOf(other);
-
-        // ensure that the caller cannot spend other' tokens without approvals
-        if (newBalanceOther < oldBalanceOther) {
-            assert(oldAllowance >= oldBalanceOther - newBalanceOther);
-        }
-    }
+/////////////////////////////////////////////////////////////////////////
 
 //=================================================
 // TRANSFER / TRANSFERFROM
@@ -135,9 +115,83 @@ abstract contract OLASERC20Test is SymTest, Test {
         }
     }
 
+
+/////////////////////////////////////////////////////////////////////////
+
 // INVARIANT TEST 
 
-//inflation_remainder_within_cap()
+/////////////////////////////////////////////////////////////////////////
+
+//=================================================
+// BACKDOR
+//=================================================
+
+    function _checkNoBackdoor(bytes4 selector, bytes memory args, address caller, address other) public virtual {
+        // consider two arbitrary distinct accounts
+        vm.assume(other != caller);
+
+        // record their current balances
+        uint256 oldBalanceOther = IERCOLAS(token).balanceOf(other);
+
+        uint256 oldAllowance = IERCOLAS(token).allowance(other, caller);
+
+        // consider an arbitrary function call to the token from the caller
+        vm.prank(caller);
+        (bool success,) = address(token).call(abi.encodePacked(selector, args));
+        vm.assume(success);
+
+        uint256 newBalanceOther = IERCOLAS(token).balanceOf(other);
+
+        // ensure that the caller cannot spend other' tokens without approvals
+        if (newBalanceOther < oldBalanceOther) {
+            assert(oldAllowance >= oldBalanceOther - newBalanceOther);
+        }
+    }
+
+    function check_Invariant_Backdoor(bytes4 selector,address other, address caller) public {
+        // Execute an arbitrary tx
+        vm.assume(other != caller);
+
+        uint256 oldBalanceOther = IERCOLAS(token).balanceOf(other);
+        uint256 oldAllowance = IERCOLAS(token).allowance(other, caller);
+
+        vm.prank(caller);
+        (bool success,) = address(token).call(gen_calldata(selector));
+        vm.assume(success); // ignore reverting cases
+
+        uint256 newBalanceOther = IERCOLAS(token).balanceOf(other);
+
+    
+        if (newBalanceOther < oldBalanceOther) {
+            assert(oldAllowance >= oldBalanceOther - newBalanceOther);
+        }
+
+    }
+
+
+    function check_Invariant_globalInvariants(bytes4 selector, address caller) public {
+        // Execute an arbitrary tx
+        vm.prank(caller);
+        (bool success,) = address(token).call(gen_calldata(selector));
+        vm.assume(success); // ignore reverting cases
+
+        // Record post-state
+        // assert(token.totalSupply() == address(token).balance);
+          assert(IERCOLAS(token).totalSupply() == address(token).balance);
+          
+
+    }
+    function check_Invariant_inflationRemainder(bytes4 selector, address caller) public {
+        // Execute an arbitrary tx
+        vm.prank(caller);
+        (bool success,) = address(token).call(gen_calldata(selector));
+        vm.assume(success); // ignore reverting cases
+
+        // Record post-state
+        assert(IERCOLAS(token).inflationRemainder() <= IERCOLAS(token).tenYearSupplyCap() - IERCOLAS(token).totalSupply());
+
+    }
+  
     function _check_invariant_Foo(bytes4[] memory selectors, bytes[] memory data) public {
         for (uint i = 0; i < selectors.length; i++) {
             (bool success,) = address(token).call(abi.encodePacked(selectors[i], data[i]));
@@ -148,48 +202,49 @@ abstract contract OLASERC20Test is SymTest, Test {
     }
 
 
+/////////////////////////////////////////////////////////////////////////
+
+// HANDLER
+
+/////////////////////////////////////////////////////////////////////////
+   
+    function gen_calldata(bytes4 selector) internal returns (bytes memory) {
+        // Ignore view functions
+        // Skip for now
+
+        // Create symbolic values to be included in calldata
+        address guy = svm.createAddress("guy");
+        address src = svm.createAddress("src");
+        address dst = svm.createAddress("dst");
+        uint256 wad = svm.createUint256("wad");
+        uint256 val = svm.createUint256("val");
+        uint256 pay = svm.createUint256("pay");
+
+        // Generate calldata based on the function selector
+        bytes memory args;
+        if (selector == IERCOLAS(token).changeOwner.selector) {
+            args = abi.encode(guy);
+        } else if (selector == IERCOLAS(token).changeMinter.selector) {
+            args = abi.encode(guy);
+        } else if (selector == IERCOLAS(token).mint.selector) {
+            args = abi.encode(guy, wad);
+        } else if (selector == IERCOLAS(token).inflationControl.selector) {
+            args = abi.encode(wad);
+        } else if (selector == IERCOLAS(token).inflationRemainder.selector) {
+            args = abi.encode();
+        } else if (selector == IERCOLAS(token).burn.selector) {
+            args = abi.encode(val);
+        } else if (selector == IERCOLAS(token).decreaseAllowance.selector) {
+            args = abi.encode(src, wad);
+        } else if (selector == IERCOLAS(token).increaseAllowance.selector) {
+            args = abi.encode(src, wad);
+        } else {
+            // For functions where all parameters are static (not dynamic arrays or bytes),
+            // a raw byte array is sufficient instead of explicitly specifying each argument.
+            args = svm.createBytes(1024, "data"); // choose a size that is large enough to cover all parameters
+        }
+        return abi.encodePacked(selector, args);
+    }
     
 }
 
-
-    //     // Allowance should be modified correctly via increase/decrease
-    // function _check_test_ERC20_setAndIncreaseAllowance(
-    //     bytes4 selector,
-    //     bytes memory args,
-    //     address caller,
-    //     address target,
-    //     uint256 initialAmount,
-    //     uint256 increaseAmount
-    // ) public {
-
-    //     require(caller != target);
-
-    //     vm.startPrank(caller);
-    //     bool r = IERCOLAS(token).approve(target, initialAmount);
-    //     assertTrue(r,"Failed to set initial allowance via approve");
-    //     assertEq(
-    //         IERCOLAS(token).allowance(address(this), target),
-    //         initialAmount,
-    //         "Allowance not set correctly"
-    //     );
-    // //   // consider an arbitrary function call to the token from the caller
-    // //     (bool success,) = address(token).call(abi.encodePacked(selector, args));
-    // //     vm.assume(success);
-
-    //     bool t = IERCOLAS(token).increaseAllowance(target, increaseAmount);
-    //     assertTrue(t,"Failed to increase allowance");
-
-    //     uint256 parametroa = IERCOLAS(token).allowance(address(this), target);
-    //     uint256 parametrob = initialAmount + increaseAmount;
-    //     vm.stopPrank();
-    //     console2.log("aaaa",parametroa);
-    //     console2.log("bbb",parametrob);
-
-    //     assertEq(
-    //         parametroa,
-    //         parametrob,
-    //         "Allowance not increased correctly"
-    //     );
-    //     emit Result( parametroa, parametrob);
-
-    // }
