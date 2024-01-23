@@ -2,15 +2,13 @@
 pragma solidity ^0.8.15;
 
 import "../veOLAS.sol";
-import {veOLASTest} from "../Foundry/veOLASTest.t.sol";
 
-contract EchidnaVeOLASAssert is veOLASTest{
+contract EchidnaVeOLASAssert {
     veOLAS veOlas;
 
     // Constructor with dummy values
     constructor() {
-        // veOlas = new veOLAS(newAddress(7), "veOLAS", "veO");
-        setUp();
+        veOlas = new veOLAS(newAddress(7), "veOLAS", "veO");
     }
 
     // Ensure that all locked amounts are non-negative
